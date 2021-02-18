@@ -1,5 +1,10 @@
+/* PLACE NEW CODE BELOW NEXT LINE COMMENT */
+
 var page; //current page title
 
+/**
+ * Put window.onload implementation in switch case
+ */
 window.onload = function()
 {
     page = document.getElementById('tab_name').innerText;
@@ -36,3 +41,6 @@ function goToPage(item)
     }
     window.open(location, "_self");
 }
+
+/* V PLACE NEW CODE BELOW THIS LINE v */
+
