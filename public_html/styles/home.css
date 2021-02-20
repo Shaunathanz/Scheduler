@@ -30,12 +30,12 @@ body
 #nav 
 {
     display: block;
-    max-width: 1105px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
     padding-right: 20px;
     padding-left: 20px;
+    max-width: 1105px;
 }
 
 #nav ul 
@@ -74,6 +74,28 @@ body
     padding-bottom: 1px;
 }   
 
+.content-item.flex
+{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.content-item.flex-item 
+{
+    height: 170px;
+    min-width: 392px;
+    margin: 0px;
+    border-style: dashed;
+    border-color: darkred;
+    box-shadow: none;
+    border-width: 1px;
+    flex-basis: 513px;
+    flex-grow: 1;
+}
+
 .content-item
 {
     display: block;
@@ -92,9 +114,9 @@ body
 .content-item.small 
 {
     display: inline-block;
-    width: 331px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 331px;
 }
 
 /* v PLACE NEW CSS BELOW THIS LINE v */
