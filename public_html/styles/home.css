@@ -19,7 +19,7 @@ body
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 50px gray;
+    box-shadow: 0 4px 50px gray;
 }
 
 #text 
@@ -74,34 +74,12 @@ body
     padding-bottom: 1px;
 }   
 
-.content-item.flex
-{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1080px;
-    padding: 10px;
-    gap: 10px;
-}
-
-.content-item.flex-item 
-{
-    height: 170px;
-    min-width: 392px;
-    margin: 0px;
-    border-style: dashed;
-    border-color: darkred;
-    box-shadow: none;
-    border-width: 1px;
-    flex-basis: 513px;
-    flex-grow: 1;
-}
-
-.content-item
+.content-item 
 {
     display: block;
     overflow: scroll;
     max-width: 1080px;
-    box-shadow: 0 0 40px gray;
+    box-shadow: 0px 2px 10px gray;
     border-radius: 12px;
     margin: auto;
     background: white;
@@ -117,6 +95,29 @@ body
     margin-left: 10px;
     margin-right: 10px;
     width: 331px;
+}
+
+.content-item.flex
+{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    padding: 10px;
+    gap: 10px;
+}
+
+.content-item.flex-item
+{
+    height: 170px;
+    min-width: 392px;
+    margin: 0px;
+    /*! border-style: dashed; */
+    /*! border-color: darkred; */
+    box-shadow: 0px 0px 6px rgba(0,0,0,.2);
+    border-width: 1px;
+    flex-basis: 513px;
+    flex-grow: 1;
+    background: white;
 }
 
 /* v PLACE NEW CSS BELOW THIS LINE v */
