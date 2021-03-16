@@ -83,10 +83,10 @@ body
     border-radius: 12px;
     margin: auto;
     background: white;
-    margin-bottom: 20px;
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 25px;
 }
 
 .content-item.small 
@@ -97,27 +97,35 @@ body
     width: 331px;
 }
 
-.content-item.flex
+/* put flex-item inside div */
+.content-flex-area 
 {
     display: flex;
     flex-wrap: wrap;
-    max-width: 1080px;
-    padding: 10px;
-    gap: 10px;
+    max-width: 1101px;
+    gap: 25px;
+    margin: auto;
+    margin-top: 25px;
 }
 
-.content-item.flex-item
+/* can display two boxes side-by-side by default */
+.content-item.flex-item 
 {
     height: 170px;
-    min-width: 392px;
     margin: 0px;
-    /*! border-style: dashed; */
-    /*! border-color: darkred; */
-    box-shadow: 0px 0px 6px rgba(0,0,0,.2);
+    box-shadow: 0px 2px 10px gray;
     border-width: 1px;
-    flex-basis: 513px;
+    flex-basis: 398px;
     flex-grow: 1;
     background: white;
+    min-width: 208px;
+}
+
+/* can display 3 boxes side-by-side */
+.content-item.flex-item.thirds 
+{
+    flex-basis: 252px;
+    min-width: 0px;
 }
 
 /* v PLACE NEW CSS BELOW THIS LINE v */
