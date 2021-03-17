@@ -1,4 +1,4 @@
-/* PLACE NEW CODE BELOW NEXT LINE COMMENT */
+/* ADD NEW CODE TO BOTTOM OF FILE */
 
 var page; //current page title
 
@@ -14,6 +14,8 @@ window.onload = function()
         case 'Scheduler':
             //
             break;
+        case 'Test':
+            document.getElementById('logo').style.backgroundColor = "#026824";
         default:
             //
             break;
@@ -34,6 +36,11 @@ function goToPage(item)
             {
                 break;
             }
+        case 'test':
+            {
+                location = "pages/test.html";
+                break;
+            }
         default:
             {
                 console.log("Invalid page name in switch case! Going to homepage.");
@@ -42,5 +49,5 @@ function goToPage(item)
     window.open(location, "_self");
 }
 
-/* V PLACE NEW CODE BELOW THIS LINE v */
+/* V ADD NEW CODE BELOW THIS LINE v */
 
