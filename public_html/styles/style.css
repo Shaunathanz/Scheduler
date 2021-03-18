@@ -83,10 +83,11 @@ body
     border-radius: 12px;
     margin: auto;
     background: white;
-    text-align: left;
+    /*text-align: left;*/
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .content-item.small 
@@ -103,9 +104,10 @@ body
     display: flex;
     flex-wrap: wrap;
     max-width: 1101px;
-    gap: 25px;
+    gap: 10px;
     margin: auto;
-    margin-top: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* can display two boxes side-by-side by default */
@@ -124,9 +126,48 @@ body
 /* can display 3 boxes side-by-side */
 .content-item.flex-item.thirds 
 {
-    flex-basis: 251px;
+    flex-basis: 256px;
     min-width: 0px;
 }
 
 /* v PLACE NEW CSS BELOW THIS LINE v */
 
+/* SPLASH PAGE CSS */
+
+#welcome-msg
+{
+    /*TO DO*/
+}
+
+#splash-btn-area 
+{
+    margin-top: 60px;
+}
+
+#splash-btn-tutor
+{
+    border-color: white;
+    border-style: double;
+    border-radius: 60px;
+    border-width: 2px;
+}
+
+#splash-btn-tutor:hover 
+{
+    border-color: #E60099;
+}
+
+#splash-btn-student 
+{
+    border-color: white;
+    border-style: double;
+    border-radius: 60px;
+    border-width: 2px;
+}
+
+#splash-btn-student:hover 
+{
+    border-color: #2BFF00;
+}
+
+/* ################# */

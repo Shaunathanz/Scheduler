@@ -11,13 +11,11 @@ window.onload = function()
     console.log('Current Page: ' + page);
     switch(page)
     {
-        case 'Scheduler':
-            //
+        case 'Splash':
             break;
         case 'Test':
             document.getElementById('logo').style.backgroundColor = "#026824";
         default:
-            //
             break;
     }
 
@@ -29,11 +27,25 @@ window.onload = function()
  */
 function goToPage(item)
 {
-    var location = "../index.html"; //homepage default value
+    var location = "../index.php"; //homepage default value
     switch(item)
     {
         case 'home':
             {
+                if(page == "Splash")
+                {
+                    location = "index.php";
+                }
+                break;
+            }
+        case 'tutor-home':
+            {
+                location = "pages/tutor-home.php";
+                break;
+            }
+        case 'student-home':
+            {
+                location = "pages/student-home.php";
                 break;
             }
         case 'test':
