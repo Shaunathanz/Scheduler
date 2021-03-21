@@ -9,9 +9,23 @@ window.onload = function()
 {
     page = document.getElementById('tab_name').innerText;
     console.log('Current Page: ' + page);
+    
+    // #logo-text changes for each page except the splash page 
+    if(page != 'Splash')
+    {
+        document.getElementById('logo-text').innerText = page;
+    }
+
+    // page onload code
     switch(page)
     {
         case 'Splash':
+            break;
+        case 'Tutor':
+            document.getElementById('logo').style.backgroundColor = "#AD024C";
+            break;
+        case 'Student':
+            document.getElementById('logo').style.backgroundColor = "#006B40";
             break;
         case 'Test':
             document.getElementById('logo').style.backgroundColor = "#026824";

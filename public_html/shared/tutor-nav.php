@@ -1,8 +1,8 @@
 <div id="nav">
     <ul>
-        <li>Tutor Option 1</li>
-        <li>Tutor Option 2</li>
-        <li>Tutor Option 3</li>
-        <li>Tutor Option 4</li>
+        <li>Profile</li>
+        <li>Calendar</li>
+        <li>Appointment</li>
+        <li>Section</li>
     </ul>
 </div>
