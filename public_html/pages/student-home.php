@@ -10,20 +10,11 @@
 <body>
     <!--Nav Bar + Logo-->
     <?php require '../shared/logo.php' ; ?>
-    <?php require '../shared/student-nav.php' ; ?>
 
     <!--Page Contents-->
     <div class="content-item">
         <div>
             <h1></h1>
-        </div>
-    </div>
-    <div class="content-flex-area">
-        <div class="content-item flex-item">
-            <h2></h2>
-        </div>
-        <div class="content-item flex-item">
-            <h2></h2>
         </div>
     </div>
 </body>
