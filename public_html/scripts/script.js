@@ -20,9 +20,17 @@ window.onload = function()
     switch(page)
     {
         case 'Splash':
+            document.getElementById('logo').style.backgroundColor = "darkred";
             break;
         case 'Tutor':
-            document.getElementById('logo').style.backgroundColor = "#AD024C";
+            break;
+        case 'Calendar':
+            break;
+        case 'Profile':
+            break;
+        case 'Appointments':
+            break;
+        case 'Sections':
             break;
         case 'Student':
             document.getElementById('logo').style.backgroundColor = "#006B40";
@@ -33,7 +41,7 @@ window.onload = function()
             break;
     }
 
-    console.log("Created by Shaun Graham for ICS 325-01");
+    console.log("Created by Group 10 for ICS 325-01");
 }
 
 /**
@@ -55,6 +63,26 @@ function goToPage(item)
         case 'tutor-home':
             {
                 location = "pages/tutor-home.php";
+                break;
+            }
+        case 'tutor-calendar':
+            {
+                location = "tutor-calendar.php";
+                break;
+            }
+        case 'tutor-appointments':
+            {
+                location = "tutor-appointments.php";
+                break;
+            }
+        case 'tutor-sections':
+            {
+                location = "tutor-sections.php";
+                break;
+            }
+        case 'tutor-profile':
+            {
+                location = "tutor-profile.php";
                 break;
             }
         case 'student-home':

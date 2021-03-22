@@ -2,7 +2,7 @@
 <html>
 <head>
     <!--CSS caching disabled with ?stuff-->
-    <link rel="stylesheet" type="text/css" href="styles/style.css?zAzhffsshzggffAffszffaaz" media="screen" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css?zAzhffssffhzggffAffffszffaaz" media="screen" />
     <script src="scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Splash</title>

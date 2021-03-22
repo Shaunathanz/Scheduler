@@ -11,7 +11,7 @@ body
 
 #logo
 {
-    background-color: darkred;
+    background-color: #AD024C;
     color: white;
     border-radius: 10px;
     cursor: pointer;
@@ -55,7 +55,7 @@ body
 
 #nav ul li:hover
 {
-    background-color: darkred;
+    background-color: #AD024C;
     border-radius: 3px;
     color: white;
     cursor: pointer;
@@ -149,6 +149,7 @@ body
 {
     border-color: #FFB3E7;
     border-style: double;
+    user-select: none;
     /*border-radius: 60px;*/
     border-width: 2px;
     height: 69px;
@@ -156,6 +157,7 @@ body
 
 #splash-btn-tutor:hover 
 {
+    cursor: pointer;
     border-color: #E60099;
 }
 
@@ -163,13 +165,14 @@ body
 {
     border-color: #AFFFB2;
     border-style: double;
-    /*border-radius: 60px;*/
+    user-select: none;
     border-width: 2px;
     height: 69px;
 }
 
 #splash-btn-student:hover 
 {
+    cursor: pointer;
     border-color: #2BFF00;
 }
 

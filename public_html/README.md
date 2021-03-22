@@ -1,1 +1,2 @@
-Calendar copyright Gabriel Colombo https://codepen.io/gabrielcolombo/pen/LGzNwq
+ics325
+Arielle, Jason, Shaun
