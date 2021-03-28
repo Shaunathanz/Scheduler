@@ -202,4 +202,85 @@ body
     margin-top: 6px;
 }
 
+.midwidth {
+    width: 50%;
+    float: left;
+}
+
+.text_right {
+    text-align: right;
+}
+.text_left {
+    text-align: left;
+}
+.appointment-section b{
+	margin-left:5px;
+	margin-right:5px;
+}
+.appointment-section span{
+	margin-left:5px;
+	margin-right:5px;
+}
+.appointment-section .row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+}
+span.success {
+    background: #4ccea7;
+    color: #fff;
+    padding: 3px;
+}
+span.decline {
+    background: #d32c2c;
+    color: #fff;
+    padding: 3px;
+}
+.sub_group {
+    float: left;
+}
+
+.submit_area {
+    margin: 6px auto;
+    float: none;
+    width: 180px;
+}
+.submit_area a{
+    
+    text-decoration: none;
+}
+.dec_success{
+	color: #d32c2c;
+}
+.acpt_success{
+	color: #4ccea7;
+}
+.appointment_footer_section {
+    text-align: center;
+    background: #fff;
+    margin: 0 auto;
+    max-width: 1100px;
+    box-shadow: 0px 2px 10px grey;
+    border-radius: 12px;
+}
+
+.appointment_footer_section ul {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.appointment_footer_section ul li {
+    float: left;
+    padding: 9px 22px;
+    list-style: none;
+    font-size: 22px;
+    /* color: #fff; */
+}
+
+.appointment_footer_section ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
 /* ################# */
