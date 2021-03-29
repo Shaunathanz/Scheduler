@@ -131,7 +131,7 @@ function goToPage(item)
             }
         default:
             {
-                console.log("Invalid page name in switch case! Check script.js.Going to homepage.");
+                console.log("Invalid page name in switch case! Argument = \"" + item + "\". Check script.js. Going to homepage.");
             }
     }
     window.open(location, "_self");
