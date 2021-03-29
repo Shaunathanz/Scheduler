@@ -17,10 +17,10 @@
         <div>
             <h1>Current Tutor Calendar</h1>
             <p>
-			<input type="button" value="Schedule A Time" class="homebutton" id="btnHome" onClick="window.location = ''" />
-</p>
+			    <input type="button" value="Schedule A Time" class="homebutton" id="btnHome" onClick="window.location = ''" />
+            </p>
             <div style="margin:auto">
-                <img height="100%" width="100%" src="/Team/images/Calendar.JPG" /></div>
+                <img height="100%" width="100%" src="../images/Calendar.JPG" /></div>
         </div>
     </div>
 </body>
