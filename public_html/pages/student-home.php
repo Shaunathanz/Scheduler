@@ -72,7 +72,7 @@ function test_input($data) {
 }
 ?>
 
-<h2>Student Registration</h2>
+<h2>Schedule an Appointment</h2> <!-- TODO: Make these fields make sense for the context of the page -->
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">

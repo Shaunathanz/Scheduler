@@ -87,7 +87,7 @@
         }
         ?>
 
-<h2>Tutor Registration</h2>
+<h2>View / Edit Info</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">

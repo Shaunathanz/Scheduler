@@ -28,7 +28,7 @@
     </div>
     <div id="login" class="content-item">
         <div>
-            <h3>Returning users. Login</h3>
+            <h3>Returning users, login</h3>
             <form action="pages/login.php" method="post">
                 <label for="username-login">Username</label><br>
                 <input type="text" id="username-login" name="username"
