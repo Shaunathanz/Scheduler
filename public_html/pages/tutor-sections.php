@@ -10,6 +10,7 @@
 <body>
     <!--Logo-->
     <?php require '../shared/logo.php' ; ?>
+    <?php require '../shared/tutor-nav.php' ; ?>
 
     <!--Page Contents-->
     <div class="content-item">

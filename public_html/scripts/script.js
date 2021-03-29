@@ -1,4 +1,4 @@
-/* ADD NEW CODE TO BOTTOM OF FILE */
+/* ADD NEW FUNCTIONS TO BOTTOM OF FILE */
 
 var page; //current page title
 
@@ -57,6 +57,11 @@ function goToPage(item)
                 if(page == "Splash")
                 {
                     location = "index.php";
+                } else if (page == "Student")
+                {
+                    location = "pages/student-home.php";
+                } else {
+                    location = "tutor-home.php";
                 }
                 break;
             }
@@ -90,6 +95,12 @@ function goToPage(item)
                 location = "pages/student-home.php";
                 break;
             }
+        case 'splash': //doubles as logout function (TO DO)
+            {
+                //logout code here
+                page = "../index.php";
+                break;
+            }
         case 'test':
             {
                 location = "pages/test.html";
@@ -103,5 +114,5 @@ function goToPage(item)
     window.open(location, "_self");
 }
 
-/* V ADD NEW CODE BELOW THIS LINE v */
+/* V ADD NEW FUNCTIONS BELOW THIS LINE v */
 

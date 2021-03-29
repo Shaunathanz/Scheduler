@@ -266,8 +266,9 @@ span.decline {
 }
 
 .appointment_footer_section ul {
-    margin: 0 auto;
     display: inline-block;
+    padding: 0px;
+    margin: 0px;
 }
 
 .appointment_footer_section ul li {
