@@ -20,22 +20,30 @@ window.onload = function()
     switch(page)
     {
         case 'Splash':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
             document.getElementById('logo').style.backgroundColor = "darkred";
             break;
         case 'Tutor':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Calendar':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Profile':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Appointments':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Sections':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Student':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("student-home");});
             document.getElementById('logo').style.backgroundColor = "#006B40";
             break;
         case 'Test':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
             document.getElementById('logo').style.backgroundColor = "#026824";
         default:
             break;
@@ -54,20 +62,17 @@ function goToPage(item)
     {
         case 'home':
             {
-                if(page == "Splash")
-                {
-                    location = "index.php";
-                } else if (page == "Student")
-                {
-                    location = "pages/student-home.php";
-                } else {
-                    location = "tutor-home.php";
-                }
+                location = "index.php";
                 break;
             }
         case 'tutor-home':
             {
-                location = "pages/tutor-home.php";
+                if(page == "Splash")
+                {
+                    location = "pages/tutor-home.php";
+                } else {
+                    location = "tutor-home.php";
+                }
                 break;
             }
         case 'tutor-calendar':
@@ -92,7 +97,14 @@ function goToPage(item)
             }
         case 'student-home':
             {
-                location = "pages/student-home.php";
+                if(page == "Splash")
+                {
+                    location = "pages/student-home.php";
+                } else
+                {
+                    location = "student-home.php"; // == "refresh page"
+                }
+
                 break;
             }
         case 'splash': //doubles as logout function (TO DO)
@@ -108,10 +120,32 @@ function goToPage(item)
             }
         default:
             {
-                console.log("Invalid page name in switch case! Going to homepage.");
+                console.log("Invalid page name in switch case! Check script.js.Going to homepage.");
             }
     }
     window.open(location, "_self");
+}
+
+function btnSelected(btnSelectedName)
+{
+    switch(btnSelectedName)
+    {
+        case 'tutor':
+            {
+                document.getElementById("splash-btn-student").style.display = "none";
+                document.getElementById("login").style.display = "block";
+                break;
+            }
+        case 'student':
+            {
+                goToPage('student-home');
+                break;
+            }
+        default:
+            {
+                console.log("Invlid argument passed to function btnSelected()!");
+            }
+    }
 }
 
 /* V ADD NEW FUNCTIONS BELOW THIS LINE v */

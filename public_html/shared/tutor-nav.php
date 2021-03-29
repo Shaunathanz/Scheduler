@@ -1,5 +1,5 @@
 <div id="nav">
-    <ul>
+    <ul id="tutor-nav">
         <li onclick="goToPage('tutor-calendar');">Calendar</li>
         <li onclick="goToPage('tutor-appointments');">Appointments</li>
         <li onclick="goToPage('tutor-sections');">Sections</li>

@@ -2,7 +2,7 @@
 <html>
 <head>
     <!--CSS caching disabled with ?stuff-->
-    <link rel="stylesheet" type="text/css" href="styles/style.css?zAzhffssffhzggffsAffffszffaaz" media="screen" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css?s" media="screen" />
     <script src="scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Splash</title>
@@ -19,15 +19,15 @@
         </div>
     </div>
     <div id="splash-btn-area" class="content-flex-area">
-        <div id="splash-btn-tutor" class="content-item flex-item" onclick="goToPage('tutor-home');">
+        <div id="splash-btn-tutor" class="content-item flex-item" onclick="btnSelected('tutor')">
             <h2>Tutor Portal</h2>
         </div>
-        <div id="splash-btn-student" class="content-item flex-item" onclick="goToPage('student-home');">
+        <div id="splash-btn-student" class="content-item flex-item" onclick="btnSelected('student');">
             <h2>Student Portal</h2>
         </div>
     </div>
-    <div class="content-item">
-        <div id="login">
+    <div id="login" class="content-item">
+        <div>
             <form action="pages/login.php" method="post">
                 <label for="username-login">Username</label><br>
                 <input type="text" id="username-login" name="username"
@@ -43,7 +43,7 @@
                     title="Required, any character string, max length 20"
                     autocomplete="off"
                     required><br><br>
-                <br><input type="submit" value="Login" id="loginBtn">
+                <br><input type="submit" value="Login" id="loginBtn" onclick="goToPage('tutor-home');">
             </form>
         </div>
     </div>

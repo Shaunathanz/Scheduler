@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles/style.css?stufffdfssfsff" media="screen" />
-    <link rel="stylesheet" type="text/css" href="../styles/font-awesome/css/font-awesome.min.css?sdsssfd" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles/style.css?" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles/font-awesome/css/font-awesome.min.css?" media="screen" />
     <script src="../scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Appointments</title>

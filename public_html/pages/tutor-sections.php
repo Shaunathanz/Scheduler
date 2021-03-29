@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles/style.css?sthhuff" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles/style.css?" media="screen" />
     <script src="../scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Sections</title>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../styles/style.css?stssuff" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../styles/style.css?stsssssddsuff" media="screen" />
     <script src="../scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Student</title>
@@ -10,6 +10,7 @@
 <body>
     <!--Nav Bar + Logo-->
     <?php require '../shared/logo.php' ; ?>
+    <?php require '../shared/student-nav.php' ; ?>
 
     <!--Page Contents-->
     <div class="content-item">
