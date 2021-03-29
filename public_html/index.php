@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!--CSS caching disabled with ?stuff-->
-    <link rel="stylesheet" type="text/css" href="styles/style.css?s" media="screen" />
+    <!--CSS caching disabled with php echo time()-->
+    <link rel="stylesheet" type="text/css" href="styles/style.css?<?php echo time();?>" media="screen" />
     <script src="scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Splash</title>

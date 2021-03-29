@@ -188,12 +188,11 @@ body
 #login
 {
     display: none;
-    padding: 20px;
 }
 
 #loginBtn
 {
-    /*to do*/
+    cursor: pointer;
 }
    
 
