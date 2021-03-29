@@ -58,15 +58,6 @@
 			</div>
         </div>
     </div>
-	<div class="appointment_footer_section">
-		<ul>
-			<li><a href="tutor-home.php"><i class="icon-home"></i></a></li>
-			<li><a href="tutor-profile.php"><i class="icon-bookmark-empty"></i></a></li>
-			<li><a href="tutor-calendar.php"><i class="icon-calendar"></i></a></li>
-			<li><a href="tutor-sections.php"><i class="icon-file-text"></i></a></li>
-		</ul>
-	</div>
-    
 </body>
 </html>
 
