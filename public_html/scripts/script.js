@@ -32,6 +32,9 @@ window.onload = function()
         case 'Profile':
             document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
+        case 'Profile Registration':
+            document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
+            break;
         case 'Appointments':
             document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
@@ -62,7 +65,10 @@ function goToPage(item)
     {
         case 'home':
             {
-                location = "index.php";
+                if(page == "Splash")
+                {
+                    location = "index.php";
+                } //else default value should apply
                 break;
             }
         case 'tutor-home':
@@ -93,6 +99,11 @@ function goToPage(item)
         case 'tutor-profile':
             {
                 location = "tutor-profile.php";
+                break;
+            }
+        case 'register':
+            {
+                location = "pages/tutor-register.php";
                 break;
             }
         case 'student-home':

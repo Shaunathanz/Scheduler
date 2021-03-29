@@ -28,6 +28,7 @@
     </div>
     <div id="login" class="content-item">
         <div>
+            <h3>Returning users. Login</h3>
             <form action="pages/login.php" method="post">
                 <label for="username-login">Username</label><br>
                 <input type="text" id="username-login" name="username"
@@ -43,8 +44,10 @@
                     title="Required, any character string, max length 20"
                     autocomplete="off"
                     required><br><br>
-                <br><input type="submit" value="Login" id="loginBtn" onclick="goToPage('tutor-home');">
+                <input type="submit" value="Login" id="loginBtn" onclick="goToPage('tutor-home');">
             </form>
+            <h3>New user? Register Now!</h3>
+            <button onclick="goToPage('register');">Create an Account</button>
         </div>
     </div>
 </body>
