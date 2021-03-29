@@ -15,13 +15,12 @@
     <!--Page Contents-->
     <div class="content-item">
         <div>
-            <h1>Contents go in here</h1>
-            <p>Words go here</p>
-            <ul>
-                <li>Mad facts 1</li>
-                <li>Mad facts 2</li>
-                <li>Mad facts 3</li>
-            </ul>
+            <h1>Current Tutor Calendar</h1>
+            <p>
+			<input type="button" value="Schedule A Time" class="homebutton" id="btnHome" onClick="window.location = ''" />
+</p>
+            <div style="margin:auto">
+                <img height="100%" width="100%" src="/Team/images/Calendar.JPG" /></div>
         </div>
     </div>
 </body>
