@@ -42,7 +42,7 @@ window.onload = function()
             document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Student':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("student-home");});
+            document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
             document.getElementById('logo').style.backgroundColor = "#006B40";
             break;
         case 'Test':

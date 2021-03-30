@@ -10,7 +10,7 @@
 <body>
     <!--Nav Bar + Logo-->
     <?php require '../shared/logo.php' ; ?>
-    <?php require '../shared/student-nav.php' ; ?>
+    <?php //require '../shared/student-nav.php' ; ?>
 
     <!--Page Contents-->
     <div class="content-item">
