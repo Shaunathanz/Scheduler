@@ -294,5 +294,14 @@ span.decline {
     color: #000;
     text-decoration: none;
 }
-
+.edit_icon{
+	color:#000;
+	text-decoration: none;
+}
+.profile_pic_block {
+    border: 1px solid #9e9e9e;
+    margin: 0 auto;
+    max-width: 260px;
+    padding: 11px;
+}
 /* ################# */

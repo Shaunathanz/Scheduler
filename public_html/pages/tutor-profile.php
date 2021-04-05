@@ -17,7 +17,7 @@
         <?php
         // define variables and set to empty values
         $firstnameErr = $lastnameErr = $emailErr = $subject= $genderErr = $websiteErr = "";
-        $firstname = $lastname = $email = $gender = $comment = $website = "";
+        $firstname = $lastname = $email = $gender = $comment = $website = "";$about = ""; $degree = "";
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["firstname"])) {
@@ -77,6 +77,18 @@
             } else {
                 $gender = test_input($_POST["gender"]);
             }
+			
+			if (empty($_POST["about"])) {
+                $about = "";
+            } else {
+                $about = test_input($_POST["about"]);
+            }
+			
+			if (empty($_POST["degree"])) {
+                $degree = "";
+            } else {
+                $degree = test_input($_POST["degree"]);
+            }
         }
 
         function test_input($data) {
@@ -88,8 +100,15 @@
         ?>
 
 <h2>View / Edit Info</h2>
-<p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+	<div class="profile_pic">	
+		<div class="profile_pic_block">
+			<img height="200px" width="auto" src="../images/blankAvatar.jpg">
+			<a class="edit_icon" href="tutor-profile.php"><i class="icon-pencil"></i> </a>
+		</div>	
+	</div>
+<p><span class="error">* required field</span></p>	
   First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">
   <span class="error">* <?php echo $firstnameErr;?></span>
   <br><br>
@@ -116,6 +135,11 @@
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
   <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
+  About: <textarea name="about" rows="5" cols="40"><?php echo $about;?></textarea>
+  <br><br>
+  Degree: <input type="text" name="degree" value="<?php echo $degree;?>">
+  
+  <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
 
@@ -134,6 +158,10 @@ echo "<br>";
 echo $comment;
 echo "<br>";
 echo $gender;
+echo "<br>";
+echo $about;
+echo "<br>";
+echo $degree;
 ?>
     </div>
 </body>
