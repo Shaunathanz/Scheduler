@@ -9,6 +9,7 @@
 
 <body>
     <!--Nav Bar + Logo-->
+    <?php require_once '../scripts/initialize.php'; ?>
     <?php require '../shared/logo.php' ; ?>
     <?php //require '../shared/student-nav.php' ; ?>
 

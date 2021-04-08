@@ -2,6 +2,11 @@
 
 /*PLACE NEW CSS BELOW NEXT LINE COMMENT*/
 
+#testing-area
+{
+    height:500px;
+}
+
 body
 {
     text-align: center;
@@ -88,6 +93,11 @@ body
     margin: auto;
 } 
 
+#welcome-msg
+{
+    min-height: 0px;
+}
+
 .content-item 
 {
     display: block;
@@ -147,22 +157,11 @@ body
 
 /* SPLASH PAGE CSS */
 
-#welcome-msg
-{
-    /*TO DO*/
-}
-
-#splash-btn-area 
-{
-    /*margin-top: 60px;*/
-}
-
 #splash-btn-tutor 
 {
     border-color: #FFB3E7;
     border-style: double;
     user-select: none;
-    /*border-radius: 60px;*/
     border-width: 2px;
     height: 69px;
 }
@@ -211,6 +210,44 @@ body
     float: left;
     width: 50%;
     margin-top: 6px;
+}
+
+#popupBG /* this CSS is a work in progress */
+{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: scroll;
+}
+
+.popup /* this CSS is a work in progress */
+{
+    display: none;
+    width: 960px;
+    box-shadow: 0px 2px 10px gray;
+    border-radius: 12px;
+    background: white;
+    padding: 10px;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+    overflow: scroll;
+    position: fixed;
+    top: 146px;
+    left: 50%;
+    margin-top: -85px;
+    margin-left: -480px;
+    max-height: 85%;
+    bottom: 55px;
+}
+
+@keyframes zoom
+{
+    from {transform:scale(0)}
+    to {transform:scale(1)} 
 }
 
 .midwidth {

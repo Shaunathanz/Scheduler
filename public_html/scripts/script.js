@@ -1,6 +1,7 @@
 /* ADD NEW FUNCTIONS TO BOTTOM OF FILE */
 
 var page; //current page title
+var current_popup; //last displayed popup
 
 /**
  * Put window.onload implementation in switch case
@@ -14,6 +15,14 @@ window.onload = function()
     if(page != 'Splash')
     {
         document.getElementById('logo-text').innerText = page;
+    }
+
+    try 
+    {
+        document.getElementById("popupBG").addEventListener("click", function(){hidePopup()});
+    } catch (Exception)
+    {
+        console.log("ERROR: Can't add event listener to popupBG!");
     }
 
     // page onload code
@@ -157,6 +166,21 @@ function btnSelected(btnSelectedName)
                 console.log("Invlid argument passed to function btnSelected()!");
             }
     }
+}
+
+/**Take an element id and set display to "block" */
+function showPopup(id)
+{
+    current_popup = document.getElementById(id);
+    current_popup.style.display = "block";
+    document.getElementById("popupBG").style.display = "block";
+}
+
+/**Hide current popup */
+function hidePopup()
+{
+    document.getElementById("popupBG").style.display = "none";
+    current_popup.style.display = "none";
 }
 
 /* V ADD NEW FUNCTIONS BELOW THIS LINE v */
