@@ -264,12 +264,6 @@
             echo $degree;
             ?>
         </div>
-        <div class="popup" id="test3">
-            <h1>Test 3 Stuff</h1>
-        </div>
-        <div class="popup" id="test3">
-            <h1>Test 3 Stuff</h1>
-        </div>
     </div>
 </body>
 </html>
