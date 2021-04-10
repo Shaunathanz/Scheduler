@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2021 at 02:35 AM
+-- Generation Time: Apr 11, 2021 at 12:54 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -33,10 +33,22 @@ CREATE TABLE `Appointment` (
   `date` date NOT NULL,
   `time_start` int(4) NOT NULL,
   `time_end` int(4) NOT NULL,
+  `subject` varchar(30) NOT NULL,
   `status` varchar(11) NOT NULL DEFAULT 'Unconfirmed',
   `student_id` int(7) DEFAULT NULL,
   `time_off` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Appointment`
+--
+
+INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `student_id`, `time_off`) VALUES
+(1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
+(2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
+(4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
+(4, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
+(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0');
 
 -- --------------------------------------------------------
 
@@ -46,19 +58,19 @@ CREATE TABLE `Appointment` (
 
 CREATE TABLE `Available` (
   `tutor_id` int(3) NOT NULL,
-  `start` int(4) NOT NULL,
-  `end` int(4) NOT NULL
+  `time_start` int(4) NOT NULL,
+  `time_end` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Available`
 --
 
-INSERT INTO `Available` (`tutor_id`, `start`, `end`) VALUES
-(4, 700, 1500),
-(5, 900, 1700),
-(6, 1500, 1900),
-(7, 1200, 1300);
+INSERT INTO `Available` (`tutor_id`, `time_start`, `time_end`) VALUES
+(1, 700, 1500),
+(2, 900, 1700),
+(3, 1500, 1900),
+(4, 1200, 1300);
 
 -- --------------------------------------------------------
 
@@ -71,6 +83,16 @@ CREATE TABLE `Student` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Student`
+--
+
+INSERT INTO `Student` (`id`, `name`, `email`) VALUES
+(1, 'Shaun G.', 'example@email.com'),
+(2, 'Kayla J.', 'kayjay@email.com'),
+(3, 'Jen H.', 'jenh@email.com'),
+(4, 'Josh R.', 'jrnottolkien@email.com');
 
 -- --------------------------------------------------------
 
@@ -88,15 +110,17 @@ CREATE TABLE `Subjects` (
 --
 
 INSERT INTO `Subjects` (`tutor_id`, `subject`) VALUES
-(5, 'Algebra'),
-(5, 'Calculus'),
-(5, 'Discrete Mathematics'),
-(5, 'Pre Calculus'),
-(6, 'Another History Topic'),
-(6, 'European History'),
-(6, 'Some History Topic'),
-(7, 'How to Avoid Working'),
-(7, 'Sweeping Floor Basics');
+(2, 'Algebra'),
+(2, 'Calculus'),
+(2, 'Discrete Mathematics'),
+(2, 'How to Avoid Working'),
+(2, 'Pre Calculus'),
+(3, 'Another History Topic'),
+(3, 'European History'),
+(3, 'How to Avoid Working'),
+(3, 'Some History Topic'),
+(4, 'How to Avoid Working'),
+(4, 'Sweeping Floor Basics');
 
 -- --------------------------------------------------------
 
@@ -117,10 +141,10 @@ CREATE TABLE `Tutor` (
 --
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(7, 'Dr. Jan Itor', 'broom-life@school.com', '1234', ''),
-(6, 'History Person', 'whoreallydid911@school.com', '9-11', ''),
-(5, 'Math Lady', 'crazy4math@school.com', '3.141592', ''),
-(4, 'Test Tutor', 'test@test.com', 'test', '');
+(4, 'Dr. Jan Itor', 'broom-life@school.com', '1234', ''),
+(3, 'History Person', 'whoreallydid911@school.com', '9-11', ''),
+(2, 'Math Lady', 'crazy4math@school.com', '3.141592', ''),
+(1, 'Test Tutor', 'test@test.com', 'test', '');
 
 --
 -- Indexes for dumped tables
@@ -166,13 +190,13 @@ ALTER TABLE `Tutor`
 -- AUTO_INCREMENT for table `Appointment`
 --
 ALTER TABLE `Appointment`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Student`
 --
 ALTER TABLE `Student`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `Tutor`
