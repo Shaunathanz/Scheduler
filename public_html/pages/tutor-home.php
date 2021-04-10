@@ -55,13 +55,10 @@
             <?php //Here's an example of how to query the database
                 $sql = "SELECT * FROM Tutor";
 
-                if (!$result = $db->query($sql)) 
-                {
+                if (!$result = $db->query($sql)) {
                     die ('There was an error running query[' . $connection->error . ']');
                 }
-
-                while($row = $result->fetch_assoc()) 
-                {
+                while($row = $result->fetch_assoc()) {
                     echo "<br>id: " . $row["id"] . "<br>name: " . $row["name"] . "<br>email: " . $row["email"] . "<br>password: " . $row["password"];
                 }
             ?>

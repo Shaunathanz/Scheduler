@@ -12,22 +12,18 @@ window.onload = function()
     console.log('Current Page: ' + page);
     
     // #logo-text changes for each page except the splash page 
-    if(page != 'Splash')
-    {
+    if(page != 'Splash') {
         document.getElementById('logo-text').innerText = page;
     }
 
-    try 
-    {
+    try {
         document.getElementById("popupBG").addEventListener("click", function(){hidePopup()});
-    } catch (Exception)
-    {
+    } catch (Exception) {
         console.log("ERROR: Can't add event listener to popupBG!");
     }
 
     // page onload code
-    switch(page)
-    {
+    switch(page) {
         case 'Splash':
             document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
             document.getElementById('logo').style.backgroundColor = "darkred";
@@ -67,118 +63,79 @@ window.onload = function()
 /**
  * navigate to a new page in current tab
  */
-function goToPage(item)
-{
+function goToPage(item) {
     var location = "../index.php"; //homepage default value
-    switch(item)
-    {
+    switch(item){
         case 'home':
-            {
-                if(page == "Splash")
-                {
+                if(page == "Splash") {
                     location = "index.php";
                 } //else default value should apply
                 break;
-            }
         case 'tutor-home':
-            {
-                if(page == "Splash")
-                {
+                if(page == "Splash"){
                     location = "pages/tutor-home.php";
                 } else {
                     location = "tutor-home.php";
                 }
                 break;
-            }
         case 'tutor-calendar':
-            {
                 location = "tutor-calendar.php";
                 break;
-            }
         case 'tutor-appointments':
-            {
                 location = "tutor-appointments.php";
                 break;
-            }
         case 'tutor-sections':
-            {
                 location = "tutor-sections.php";
                 break;
-            }
         case 'tutor-profile':
-            {
                 location = "tutor-profile.php";
                 break;
-            }
         case 'register':
-            {
                 location = "pages/tutor-register.php";
                 break;
-            }
         case 'student-home':
-            {
-                if(page == "Splash")
-                {
+                if(page == "Splash"){
                     location = "pages/student-home.php";
-                } else
-                {
+                } else {
                     location = "student-home.php"; // == "refresh page"
                 }
-
                 break;
-            }
         case 'splash': //doubles as logout function (TO DO)
-            {
                 //logout code here
                 page = "../index.php";
                 break;
-            }
         case 'test':
-            {
                 location = "pages/test.html";
                 break;
-            }
         default:
-            {
                 console.log("Invalid page name in switch case! Argument = \"" + item + "\". Check script.js. Going to homepage.");
-            }
     }
     window.open(location, "_self");
 }
 
-function btnSelected(btnSelectedName)
-{
-    switch(btnSelectedName)
-    {
+function btnSelected(btnSelectedName) {
+    switch(btnSelectedName) {
         case 'tutor':
-            {
                 document.getElementById("splash-btn-student").style.display = "none";
                 document.getElementById("login").style.display = "block";
                 break;
-            }
         case 'student':
-            {
                 goToPage('student-home');
                 break;
-            }
         default:
-            {
                 console.log("Invlid argument passed to function btnSelected()!");
-            }
     }
 }
 
 /**Take an element id and set display to "block" */
-function showPopup(id)
-{
+function showPopup(id) {
     current_popup = document.getElementById(id);
     current_popup.style.display = "block";
     document.getElementById("popupBG").style.display = "block";
 }
 
 /**Hide current popup */
-function hidePopup()
-{
+function hidePopup() {
     document.getElementById("popupBG").style.display = "none";
     current_popup.style.display = "none";
 }

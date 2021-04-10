@@ -1,4 +1,6 @@
 <?php
+//CONTAINS ALL DATA VALIDATION FUNCTIONS
+
 /**Check for empty value */
   function is_blank($value) {
     return !isset($value) || trim($value) === '';

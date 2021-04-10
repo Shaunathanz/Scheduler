@@ -1,7 +1,9 @@
 <?php
 require_once('initialize.php');
 
-function login_exists($email, $password){
+//CONTAINS ALL FUNCTIONS FOR MANIPULATING THE DATABASE
+
+function login_exists($email, $password) {
 	global $db;
 
 	$sql = "SELECT * FROM Tutor WHERE email='$email' AND hash='$password'";
