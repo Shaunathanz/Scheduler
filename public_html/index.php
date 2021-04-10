@@ -29,12 +29,12 @@
     <div id="login" class="content-item">
         <div>
             <h3>Returning users, login</h3>
-            <form action="pages/login.php" method="post">
-                <label for="username-login">Username</label><br>
-                <input type="text" id="username-login" name="username"
-                    pattern=".{1,20}"
-                    maxlength = 20
-                    title="Required, any character string, max length 20"
+            <form action="scripts/login.php" method="POST">
+                <label for="email-login">Email</label><br>
+                <input type="text" id="email-login" name="email"
+                    pattern=".{1,50}"
+                    maxlength = 50
+                    title="Email Address"
                     autocomplete="off"
                     required><br><br>
                 <label for="password-login">Password</label><br>
@@ -44,7 +44,7 @@
                     title="Required, any character string, max length 20"
                     autocomplete="off"
                     required><br><br>
-                <input type="submit" value="Login" id="loginBtn" onclick="goToPage('tutor-home');">
+                <input type="submit" value="Login" id="loginBtn" onclick="//goToPage('tutor-home');">
             </form>
             <h3>New user? Register Now!</h3>
             <button onclick="goToPage('register');">Create an Account</button>

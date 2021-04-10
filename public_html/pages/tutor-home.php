@@ -11,11 +11,12 @@
     <!--Nav Bar + Logo-->
     <?php require '../shared/logo.php' ; ?>
     <?php require '../shared/tutor-nav.php' ; ?>
+    <?php session_start();?>
 
     <!--Page Contents-->
     <div class="content-item" id="welcome-msg">
         <div>
-            <p>Welcome back, <i>tutor_name</i></p>
+            <p>Welcome back, <i><?php echo $_SESSION["name"];?></i></p>
         </div>
     </div>
     <div class="content-item">

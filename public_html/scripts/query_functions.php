@@ -6,12 +6,12 @@ require_once('initialize.php');
 function login_exists($email, $password) {
 	global $db;
 
-	$sql = "SELECT * FROM Tutor WHERE email='$email' AND hash='$password'";
+	$sql = "SELECT * FROM Tutor WHERE email='$email' AND password='$password'";
 
 	$result = mysqli_query($db, $sql);
 
     if($result) {
-        return $result;
+        return true;
     } else {
         echo mysqli_error($db);
         db_disconnect($db);
@@ -104,7 +104,7 @@ function update_user($user) {
 function delete_user($id) {
     global $db;
 
-    if ($id < 0) {return true;}	// Don't let the interface take out any special rows hidden with item_ids < 0
+    if ($id < 0) {return true;}
 
     $sql = "DELETE FROM Tutor";
     $sql .= " WHERE id='" . $id . "'";
