@@ -5,13 +5,14 @@ Shaun
 - Populate database with data
 - Code Cleanup
 - Upload database and assignment to school server before Monday due date
+- Display Upcoming Appointments
 
 Jason
 - Modify Profile Fields to reflect only data that we're actually storing
-- Populate Tutor Profile Fields with all data (except tutor id and the image path) whenever the tutor profile form is displayed
-- Code functionality for updating the currently logged in tutor's information in the database based on what information the form's field currently contain via use of an "update" button
+- Populate Tutor Profile Fields with all data (except tutor id and the image path) whenever the tutor Profile form is displayed
+- Add functionality for updating the currently logged in tutor's information in the database based on what information the form's field currently contain via use of an "update" button
 
 Arielle
-- Code in functionality for inserting the tutor information into the database from the tutor registration page
-- Code in functionality for the tutor image to be updated on the profile form popup
+- Add functionality for inserting the tutor information into the database from the Tutor Registration page
+- Add functionality for the tutor image to be updated on the Profile form popup
 - Fix the CSS for the popup so that it doesn't clip offscreen on the sides when the window width is small
