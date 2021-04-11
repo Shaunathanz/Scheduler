@@ -14,8 +14,7 @@
         } else {
             echo "Login sucess!";
             session_start();
-            $row = $result->fetch_assoc(); //can be used in while loop if resut is multiple tuples
-            $_SESSION["name"] = $row["name"];
+            $_SESSION["activeUser"] = $result->fetch_assoc();
             header("Refresh: 2; URL=../pages/tutor-home.php");
         }
     } else {

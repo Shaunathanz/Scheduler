@@ -31,28 +31,13 @@ window.onload = function()
         case 'Tutor':
             document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
-        case 'Calendar':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
-            break;
-        case 'Profile':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
-            break;
         case 'Profile Registration':
             document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
-            break;
-        case 'Appointments':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
-            break;
-        case 'Sections':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("tutor-home");});
             break;
         case 'Student':
             document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
             document.getElementById('logo').style.backgroundColor = "#006B40";
             break;
-        case 'Test':
-            document.getElementById('logo').addEventListener("click", function(){goToPage("home");});
-            document.getElementById('logo').style.backgroundColor = "#026824";
         default:
             break;
     }
@@ -67,48 +52,32 @@ function goToPage(item) {
     var location = "../index.php"; //homepage default value
     switch(item){
         case 'home':
-                if(page == "Splash") {
-                    location = "index.php";
-                } //else default value should apply
-                break;
+            if(page == "Splash") {
+                location = "index.php";
+            } //else default value should apply
+            break;
         case 'tutor-home':
-                if(page == "Splash"){
-                    location = "pages/tutor-home.php";
-                } else {
-                    location = "tutor-home.php";
-                }
-                break;
-        case 'tutor-calendar':
-                location = "tutor-calendar.php";
-                break;
-        case 'tutor-appointments':
-                location = "tutor-appointments.php";
-                break;
-        case 'tutor-sections':
-                location = "tutor-sections.php";
-                break;
-        case 'tutor-profile':
-                location = "tutor-profile.php";
-                break;
+            if(page == "Splash"){
+                location = "pages/tutor-home.php";
+            } else {
+                location = "tutor-home.php";
+            }
+            break;
         case 'register':
-                location = "pages/tutor-register.php";
-                break;
+            location = "pages/tutor-register.php";
+            break;
         case 'student-home':
-                if(page == "Splash"){
-                    location = "pages/student-home.php";
-                } else {
-                    location = "student-home.php"; // == "refresh page"
-                }
-                break;
-        case 'splash': //doubles as logout function (TO DO)
-                //logout code here
-                page = "../index.php";
-                break;
-        case 'test':
-                location = "pages/test.html";
-                break;
+            if(page == "Splash"){
+                location = "pages/student-home.php";
+            } else {
+                location = "student-home.php"; // == "refresh page"
+            }
+            break;
+        case 'logout':
+            location = "../scripts/logout.php";
+            break;
         default:
-                console.log("Invalid page name in switch case! Argument = \"" + item + "\". Check script.js. Going to homepage.");
+            console.log("Invalid page name in switch case! Argument = \"" + item + "\". Check script.js. Going to homepage.");
     }
     window.open(location, "_self");
 }

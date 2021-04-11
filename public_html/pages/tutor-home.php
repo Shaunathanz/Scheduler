@@ -9,14 +9,15 @@
 
 <body>
     <!--Nav Bar + Logo-->
+    <?php session_start();?>
+    <?php if($_SESSION["activeUser"] == array()) {echo "You do not have permission to access this page!";header("Refresh: 2; URL=../index.php");exit;}?>
     <?php require '../shared/logo.php' ; ?>
     <?php require '../shared/tutor-nav.php' ; ?>
-    <?php session_start();?>
 
     <!--Page Contents-->
     <div class="content-item" id="welcome-msg">
         <div>
-            <p>Welcome back, <i><?php echo $_SESSION["name"];?></i></p>
+            <p>Welcome back, <i><?php echo $_SESSION["activeUser"]["name"];?></i></p>
         </div>
     </div>
     <div class="content-item">
