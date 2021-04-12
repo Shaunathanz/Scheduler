@@ -16,31 +16,21 @@
     <div class="content-item">
         <?php
 // define variables and set to empty values
-$firstnameErr = $lastnameErr = $emailErr = $subject= $genderErr = $websiteErr = "";
-$firstname = $lastname = $email = $gender = $comment = $website = "";
+$FullnameErr = $lastnameErr = $password = $emailErr = $subject= $genderErr = $websiteErr = "";
+$Fullname = $lastname = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["firstname"])) {
+    if (empty($_POST["Fullname"])) {
     $nameErr = "Name is required";
   } else {
-    $firstname = test_input($_POST["firstname"]);
+      $firstname = test_input($_POST["Fullname"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) {
-      $firstnameErr = "Only letters and white space allowed";
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$Fullname)) {
+        $FullnameErr = "Only letters and white space allowed";
     }
 	
   }
   
-  if (empty($_POST["lastname"])) {
-    $nameErr = "Last Name is required";
-  } else {
-    $lastname = test_input($_POST["lastname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) {
-      $lastnameErr = "Only letters and white space allowed";
-    }
-	
-  }
   if (empty($_POST["email"])) {
     $emailErr = "Email is required";
   } else {
@@ -85,19 +75,18 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-?>
+        ?>
 
 <h2>Tutor Registration</h2>
 <p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">
-  <span class="error">* <?php echo $firstnameErr;?></span>
-  <br><br>
-  Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
-  <span class="error">* <?php echo $lastnameErr;?></span>
+<form action="insert.php" method="POST">
+  Full Name <input type="text" name="Fullname" value="<?php echo $Fullname;?>">
+  <span class="error">* <?php echo $FullnameErr;?></span>
   <br><br>
   Email: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+    Password: <input type="text" name="password" value="<?php echo $password;?>">
   <br><br>
   <label for="Subject">Subject of Knowledge:</label>
 	<select id="subject" name="subject" required>  
@@ -119,22 +108,7 @@ function test_input($data) {
   <input type="submit" name="submit" value="Submit">  
 </form>
 
-<?php
-echo "<h2>Your Input:</h2>";
-echo $firstname;
-echo "<br>";
-echo $lastname;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $subject;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
-?>
+
     </div>
 </body>
 </html>

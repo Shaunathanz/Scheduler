@@ -117,7 +117,7 @@
         <div class="popup" id="profile">
             <?php
             // define variables and set to empty values
-            $firstnameErr = $lastnameErr = $emailErr = $subject= $genderErr = $websiteErr = "";
+            $firstnameErr = $lastnameErr = $emailErr = $array = $name = $subject= $genderErr = $websiteErr = "";
             $firstname = $lastname = $email = $gender = $comment = $website = "";$about = ""; $degree = "";
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -208,59 +208,28 @@
                     </div>	
                 </div>
             <p><span class="error">* required field</span></p>	
-            First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">
+            First Name <input type="text" name="FullName" value="<?php echo $firstname;?>">
             <span class="error">* <?php echo $firstnameErr;?></span>
-            <br><br>
-            Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
-            <span class="error">* <?php echo $lastnameErr;?></span>
             <br><br>
             Email: <input type="text" name="email" value="<?php echo $email;?>">
             <span class="error">* <?php echo $emailErr;?></span>
-            <br><br>
-            <label for="Subject">Subject of Knowledge:</label>
-                <select id="subject" name="subject" required>  
-                <option value="">Select</option>}  
-                <option value="Mathematics">Mathematics</option>  
-                <option value="Science">Science</option>  
-                <option value="Handwriting">Handwriting</option>  
-                <option value="Journalism">Journalism</option>  
-                </select>   
-            <br><br>
-            Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-            <br><br>
-            Gender:
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-            <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-            <span class="error">* <?php echo $genderErr;?></span>
-            <br><br>
-            About: <textarea name="about" rows="5" cols="40"><?php echo $about;?></textarea>
-            <br><br>
-            Degree: <input type="text" name="degree" value="<?php echo $degree;?>">
             
             <br><br>
             <input type="submit" name="submit" value="Submit">  
             </form>
 
             <?php
-            echo "<h2>Your Input:</h2>";
-            echo $firstname;
-            echo "<br>";
-            echo $lastname;
-            echo "<br>";
-            echo $email;
-            echo "<br>";
-            echo $subject;
-            echo "<br>";
-            echo $website;
-            echo "<br>";
-            echo $comment;
-            echo "<br>";
-            echo $gender;
-            echo "<br>";
-            echo $about;
-            echo "<br>";
-            echo $degree;
+
+
+            $array=array($_SESSION["activeUser"]);
+            print_r($array);
+
+
+           
+
+
+
+
             ?>
         </div>
     </div>
