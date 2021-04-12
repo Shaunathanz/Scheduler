@@ -3,6 +3,29 @@ require_once('initialize.php');
 
 //CONTAINS ALL FUNCTIONS FOR MANIPULATING THE DATABASE
 
+function get_appointments($date)
+{
+    global $db;
+
+    session_start();
+    if(null == $date) {
+        //get today's appointments
+        $date = substr(date(DATE_ATOM), 0, 10);
+    }
+    $sql = "SELECT Appointment.time_start, Appointment.time_end, Appointment.subject, Student.name
+        FROM Appointment
+        INNER JOIN Tutor ON Tutor.id = Appointment.tutor_id AND Tutor.id = " . $_SESSION['activeUser']['id'] . " AND Appointment.date = " . $date . "
+        INNER JOIN Student ON Student.id = Appointment.student_id";
+    //echo $sql;
+
+    if (!$result = $db->query($sql)) {
+        die ('There was an error running query[' . $connection->error . ']');
+    }
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+    }
+}
+
 function login_exists($email, $password) {
 	global $db;
 
@@ -22,7 +45,7 @@ function login_exists($email, $password) {
   function find_all_users() {
     global $db;
 
-    $sql = "select id, name, email, img ";
+    $sql = "SELECT id, name, email, img ";
     $sql .= "from Tutor ";
     //$sql .= "ORDER BY position ASC";
     //echo $sql;

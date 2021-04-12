@@ -35,21 +35,10 @@
                     <th>Subject</th>
                     <th>Student</th>
                 </tr>
-                <tr>
-                    <td>1:00PM - 3:30PM</td>
-                    <td>Discrete Math</td>
-                    <td>Kayla J.</td>
-                </tr>
-                <tr>
-                    <td>3:30PM - 5:00PM</td>
-                    <td>Discrete Math</td>
-                    <td>Jen H.</td>
-                </tr>
-                <tr>
-                    <td>5:00PM - 7:30PM</td>
-                    <td>Intro to OOP</td>
-                    <td>Josh R.</td>
-                </tr>
+                <?php 
+                    //echo get_appointments($date); //use this in actual completed version
+                    get_appointments('\'2021-04-10\''); //display test data
+                ?>
             </table> 
         </div>
         <div class="content-item flex-item" id="testing-area">
