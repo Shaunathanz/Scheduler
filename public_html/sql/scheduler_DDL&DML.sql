@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 11, 2021 at 12:54 AM
+-- Generation Time: Apr 13, 2021 at 01:09 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -33,7 +33,7 @@ CREATE TABLE `Appointment` (
   `date` date NOT NULL,
   `time_start` int(4) NOT NULL,
   `time_end` int(4) NOT NULL,
-  `subject` varchar(30) NOT NULL,
+  `subject` varchar(50) NOT NULL,
   `status` varchar(11) NOT NULL DEFAULT 'Unconfirmed',
   `student_id` int(7) DEFAULT NULL,
   `time_off` bit(1) NOT NULL DEFAULT b'0'
@@ -44,11 +44,15 @@ CREATE TABLE `Appointment` (
 --
 
 INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `student_id`, `time_off`) VALUES
+(4, 1, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
 (1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
 (2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
 (4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(4, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
-(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0');
+(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0'),
+(9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', 1, b'0'),
+(9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', 3, b'0'),
+(8, 4, '2021-04-10', 100, 200, 'Advanced Mopping Techniques', 'Unconfirmed', 2, b'0'),
+(8, 4, '2021-04-11', 100, 200, 'Mopping Basics', 'Unconfirmed', 3, b'0');
 
 -- --------------------------------------------------------
 
@@ -97,19 +101,19 @@ INSERT INTO `Student` (`id`, `name`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Subjects`
+-- Table structure for table `Subject`
 --
 
-CREATE TABLE `Subjects` (
+CREATE TABLE `Subject` (
   `tutor_id` int(3) NOT NULL,
   `subject` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Subjects`
+-- Dumping data for table `Subject`
 --
 
-INSERT INTO `Subjects` (`tutor_id`, `subject`) VALUES
+INSERT INTO `Subject` (`tutor_id`, `subject`) VALUES
 (2, 'Algebra'),
 (2, 'Calculus'),
 (2, 'Discrete Mathematics'),
@@ -141,9 +145,9 @@ CREATE TABLE `Tutor` (
 --
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(4, 'Dr. Jan Itor', 'broom-life@school.com', '1234', ''),
-(3, 'History Person', 'whoreallydid911@school.com', '9-11', ''),
-(2, 'Math Lady', 'crazy4math@school.com', '3.141592', ''),
+(4, 'Dr. Jan Itor', 'broom-life@school.com', 'test', ''),
+(3, 'History Person', 'whoreallydid911@school.com', 'test', ''),
+(2, 'Math Lady', 'crazy4math@school.com', 'test', ''),
 (1, 'Test Tutor', 'test@test.com', 'test', '');
 
 --
@@ -170,9 +174,9 @@ ALTER TABLE `Student`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Subjects`
+-- Indexes for table `Subject`
 --
-ALTER TABLE `Subjects`
+ALTER TABLE `Subject`
   ADD PRIMARY KEY (`tutor_id`,`subject`);
 
 --
@@ -190,7 +194,7 @@ ALTER TABLE `Tutor`
 -- AUTO_INCREMENT for table `Appointment`
 --
 ALTER TABLE `Appointment`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `Student`
