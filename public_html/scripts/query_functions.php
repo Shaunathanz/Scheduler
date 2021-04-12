@@ -15,7 +15,7 @@ function get_appointments($date)
     $sql = "SELECT Appointment.time_start, Appointment.time_end, Appointment.subject, Student.name
         FROM Appointment
         INNER JOIN Tutor ON Tutor.id = Appointment.tutor_id AND Tutor.id = " . $_SESSION['activeUser']['id'] . " AND Appointment.date = " . $date . "
-        INNER JOIN Student ON Student.id = Appointment.student_id";
+        INNER JOIN Student ON Student.id = Appointment.student_id ORDER BY Appointment.time_start ASC";
     //echo $sql;
 
     if (!$result = $db->query($sql)) {
