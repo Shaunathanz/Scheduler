@@ -1,6 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "scheduler");
+$conn = mysqli_connect("localhost", "ics325sp2115", "7544", "ics325sp2115");
 
 // Check connection
 if($conn === false){
@@ -12,24 +12,15 @@ if($conn === false){
 $Fullname =  $_REQUEST['Fullname'];
 $email = $_REQUEST['email'];
 $password =  $_REQUEST['password'];
-$subject = $_REQUEST['subject'];
-$gender = $_REQUEST['gender'];
-$comment = $_REQUEST['comment'];
+
 
 
 // Performing insert query execution
 // here our table name is college
-$sql = "INSERT INTO tutor  VALUES ('','$Fullname', '$email','$password','$subject','$comment','$gender','')";
+$sql = "INSERT INTO tutor  VALUES (NULL,'$Fullname', '$email','$password','')";
 
 if(mysqli_query($conn, $sql)){
-    echo "<h3>data stored in a database successfully."
-    . " Please browse your localhost php my admin"
-    . " to view the updated data</h3>";
-
-    echo nl2br("\n$Fullname\n $email\n " . "$password\n $subject\n $comment \n $gender");
-} else{
-    echo "ERROR: Hush! Sorry $sql. "
-    . mysqli_error($conn);
+    header("Refresh: 2; URL=../index.php");
 }
 
 // Close connection
