@@ -107,7 +107,7 @@ function update_user($user) {
     $sql .= "name='" . $user['name'] . "', ";
     $sql .= "email='" . $user['email'] . "', ";
     $sql .= "password='" . $user['password'] . "' ";
-    $sql .= "img='" . $user['img'] . "' "; //TO DO: Image upload feature
+    //$sql .= "img='" . $user['img'] . "' "; //TO DO: Image upload feature
     $sql .= "WHERE id='" . $user['id'] . "' ";
     $sql .= "LIMIT 1";
 

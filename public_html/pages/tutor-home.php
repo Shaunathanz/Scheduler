@@ -189,30 +189,32 @@
             }
             ?>
             <h2>View / Edit Info</h2>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+            <form action="../scripts/update_profile.php" method="POST">
                 <div class="profile_pic">	
                     <div class="profile_pic_block">
                         <img height="200px" width="auto" src="../images/blankAvatar.jpg">
                         <a class="edit_icon" href="tutor-profile.php"><i class="icon-pencil"></i> </a>
                     </div>	
                 </div>
-            <p><span class="error">* required field</span></p>	
-            First Name <input type="text" name="FullName" value="<?php echo $firstname;?>">
-            <span class="error">* <?php echo $firstnameErr;?></span>
-            <br><br>
-            Email: <input type="text" name="email" value="<?php echo $email;?>">
-            <span class="error">* <?php echo $emailErr;?></span>
-            
-            <br><br>
-            <input type="submit" name="submit" value="Submit">  
+                <p><span class="error">* required field</span></p>	
+                First Name <input type="text" name="FullName" value="<?php echo $_SESSION["activeUser"]["name"];?>">
+                <span class="error">* <?php echo $firstnameErr;?></span>
+                <br><br>
+                Email: <input type="text" name="email" value="<?php echo $_SESSION["activeUser"]["email"];?>">
+                <span class="error">* <?php echo $emailErr;?></span>
+                <!--Need password field-->
+                
+                <br><br>
+                <!--<input type="submit" name="submit" value="Submit"> -->
+                <input type="submit" value="Update" id="updateBtn" onclick="//goToPage('tutor-home');"> 
             </form>
 
             <?php
 
 
-            $array=array($_SESSION["activeUser"]);
-            print_r($array);
-
+            //$array=array($_SESSION["activeUser"]);
+            //print_r($array);
+            //Jason I don't know if you're going to use this or not so I won't delete
 
            
 
@@ -220,6 +222,7 @@
 
 
             ?>
+            <br><button type="button" onClick="hidePopup();">Close Popup</button> 
         </div>
     </div>
 </body>

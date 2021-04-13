@@ -16,11 +16,11 @@ window.onload = function()
         document.getElementById('logo-text').innerText = page;
     }
 
-    try {
+    /* try {
         document.getElementById("popupBG").addEventListener("click", function(){hidePopup()});
     } catch (Exception) {
         console.log("ERROR: Can't add event listener to popupBG!");
-    }
+    } */ //maybe add back later
 
     // page onload code
     switch(page) {
