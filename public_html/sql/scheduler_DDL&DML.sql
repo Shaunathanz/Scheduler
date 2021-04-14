@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2021 at 04:17 AM
+-- Generation Time: Apr 14, 2021 at 11:04 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -145,9 +145,8 @@ CREATE TABLE `Tutor` (
 --
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(8, 'b', 'b', 'b', ''),
 (4, 'Dr. Jan Itor', 'broom-life@school.com', 'test', ''),
-(3, 'History Person', 'whoreallydid911@school.com', 'test', ''),
+(3, 'History Person', 'history@school.com', 'test', ''),
 (2, 'Math Lady', 'math@school.com', 'test', ''),
 (1, 'Test Tutor', 'test@test.com', 'test', '');
 
@@ -207,7 +206,7 @@ ALTER TABLE `Student`
 -- AUTO_INCREMENT for table `Tutor`
 --
 ALTER TABLE `Tutor`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
