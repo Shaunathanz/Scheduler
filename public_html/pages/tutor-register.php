@@ -79,7 +79,7 @@ function test_input($data) {
 
 <h2>Tutor Registration</h2>
 <p><span class="error">* required field</span></p>
-<form action="insert.php" method="POST">
+<form action="../scripts/insert.php" method="POST">
   Full Name <input type="text" name="Fullname" value="<?php echo $Fullname;?>">
   <span class="error">* <?php echo $FullnameErr;?></span>
   <br><br>
@@ -88,7 +88,7 @@ function test_input($data) {
   <br><br>
     Password: <input type="text" name="password" value="<?php echo $password;?>">
   <br><br>
-  <label for="Subject">Subject of Knowledge:</label>
+  <label for="Subject">Subject(s) of Knowledge:</label>
 	<select id="subject" name="subject" required>  
 	  <option value="">Select</option>}  
 	  <option value="Mathematics">Mathematics</option>  
@@ -96,14 +96,6 @@ function test_input($data) {
 	  <option value="Handwriting">Handwriting</option>  
 	  <option value="Journalism">Journalism</option>  
 	</select>   
-  <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>

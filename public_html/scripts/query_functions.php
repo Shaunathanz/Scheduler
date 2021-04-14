@@ -81,14 +81,14 @@ function insert_user($name, $email, $password, $img) {
     $sql .= "'" . $name . "',";
     $sql .= "'" . $email . "',";
 	$sql .= "'" . $password . "',";
-	$sql .= "'" . $img . "',";
-    $sql .= ")";
+	$sql .= "'" . $img;
+    $sql .= "');";
 
-	echo $sql;
+	//echo $sql;
 
     $result = mysqli_query($db, $sql);
-	echo '$result is: ';
-	print_r($result);
+	//echo '$result is: ';
+	//print_r($result);
     // For INSERT statements, $result is true/false
     if($result) {
         return true;

@@ -29,7 +29,7 @@
     <div class="content-flex-area">
         <div class="content-item flex-item">
             <h2>Upcoming Appointments</h2>
-            <table style="width:100%">
+            <table id="appt-table">
                 <tr>
                     <th>Time</th>
                     <th>Subject</th>
@@ -40,19 +40,6 @@
                     get_appointments('\'2021-04-10\''); //display test data
                 ?>
             </table> 
-        </div>
-        <div class="content-item flex-item" id="testing-area">
-            <h2>Some other useful thing to know can go here. Tomorrow's appointments maybe...? For now it's a testing area.</h2>
-            <?php //Here's an example of how to query the database
-                $sql = "SELECT * FROM Tutor";
-
-                if (!$result = $db->query($sql)) {
-                    die ('There was an error running query[' . $connection->error . ']');
-                }
-                while($row = $result->fetch_assoc()) {
-                    echo "<br>id: " . $row["id"] . "<br>name: " . $row["name"] . "<br>email: " . $row["email"] . "<br>password: " . $row["password"];
-                }
-            ?>
         </div>
     </div>
 
@@ -206,23 +193,9 @@
                 
                 <br><br>
                 <!--<input type="submit" name="submit" value="Submit"> -->
-                <input type="submit" value="Update" id="updateBtn" onclick="//goToPage('tutor-home');"> 
-            </form>
-
-            <?php
-
-
-            //$array=array($_SESSION["activeUser"]);
-            //print_r($array);
-            //Jason I don't know if you're going to use this or not so I won't delete
-
-           
-
-
-
-
-            ?>
-            <br><button type="button" onClick="hidePopup();">Close Popup</button> 
+                <button type="button" onClick="hidePopup();">Cancel</button>
+                <input type="submit" value="Update & Logout" id="updateBtn"> 
+            </form> 
         </div>
     </div>
 </body>

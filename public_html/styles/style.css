@@ -2,11 +2,6 @@
 
 /*PLACE NEW CSS BELOW NEXT LINE COMMENT*/
 
-#testing-area
-{
-    height:500px;
-}
-
 body
 {
     text-align: center;
@@ -340,5 +335,20 @@ span.decline {
     margin: 0 auto;
     max-width: 260px;
     padding: 11px;
+}
+
+#appt-table {
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-collapse: collapse;
+}
+
+#appt-table tr td {
+    width: 30%;
+}
+
+#appt-table tr:nth-child(even) {
+    background: gainsboro;
 }
 /* ################# */
