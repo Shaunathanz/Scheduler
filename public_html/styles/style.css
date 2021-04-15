@@ -106,6 +106,7 @@ body
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
+    padding-top: 0px;
 }
 
 .content-item.small 
@@ -219,10 +220,9 @@ body
     overflow: scroll;
 }
 
-.popup /* this CSS is a work in progress */
-{
+.popup {/* this CSS is a work in progress */
     display: none;
-    width: 960px;
+    max-width: 950px;
     box-shadow: 0px 2px 10px gray;
     border-radius: 12px;
     background: white;
@@ -230,13 +230,11 @@ body
     animation-name: zoom;
     animation-duration: 0.3s;
     overflow: scroll;
-    position: fixed;
-    top: 146px;
-    left: 50%;
-    margin-top: -85px;
-    margin-left: -480px;
-    max-height: 85%;
-    bottom: 55px;
+    position: sticky;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 145px;
+    height: 550px;
 }
 
 @keyframes zoom
@@ -337,18 +335,22 @@ span.decline {
     padding: 11px;
 }
 
-#appt-table {
+#appt-table tr td {
+    width: 30%;
+}
+
+table {
     width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
     border-collapse: collapse;
 }
 
-#appt-table tr td {
-    width: 25%;
+table th {
+    position: sticky;
+    top: 0;
+    background: white;
 }
 
-#appt-table tr:nth-child(even) {
+table tr:nth-child(even) {
     background: gainsboro;
 }
 /* ################# */

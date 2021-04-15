@@ -39,7 +39,7 @@
     <div class="content-flex-area">
         <div class="content-item flex-item">
             <h2>Confirmed Appointments</h2>
-            <table id="appt-table">
+            <table>
                 <tr>
                     <th>Date</th>
                     <th>Time</th>
@@ -51,9 +51,9 @@
                 ?>
             </table>
         </div>
-        <div class="content-item flex-item">
+        <div class="content-item flex-item"> 
             <h2>Unconfirmed Appointments</h2>
-            <table id="appt-table">
+            <table>
                 <tr>
                     <th>Date</th>
                     <th>Time</th>
@@ -78,6 +78,7 @@
             <div style="margin:auto">
                 <img height="100%" width="100%" src="../images/Calendar.JPG" />
             </div>
+            <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
         </div>
         <div class="popup" id="appointment">
             <h1>Your Appointment</h1>
@@ -113,6 +114,7 @@
 					</div>
 				</div>
 			</div>
+            <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
         </div>
         <div class="popup" id="profile">
             <?php
@@ -217,8 +219,8 @@
                 
                 <br><br>
                 <!--<input type="submit" name="submit" value="Submit"> -->
-                <button type="button" onClick="hidePopup();">Cancel</button>
-                <input type="submit" value="Update & Logout" id="updateBtn"> 
+                <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
+                <input class="popupBtn" type="submit" value="Update & Logout" id="updateBtn"> 
             </form> 
         </div>
     </div>
