@@ -7,7 +7,6 @@ function get_appointments($date)
 {
     global $db;
 
-    session_start();
     if(null == $date) {
         //get today's appointments
         $date = substr(date(DATE_ATOM), 0, 10);
