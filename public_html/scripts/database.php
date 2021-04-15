@@ -1,16 +1,16 @@
 <?php
 
   function db_connect() {
-    try {
-      require_once('db_credentials.php');
-      $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-    } catch (Exception $e) {
-      require_once('db_credentials2.php');
-      $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-    } finally {
-      confirm_db_connect();
-      return $connection;
+    require_once('db_credentials.php');
+    $connection = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME); //XAMPP DEFAULT
+    if(!confirm_db_connect()) {
+      $connection = mysqli_connect(DB_SERVER2, DB_USER2, DB_PASS2, DB_NAME2); //JASON
+      if(!confirm_db_connect()) {
+        $connection = mysqli_connect(DB_SERVER3, DB_USER3, DB_PASS3, DB_NAME3); //SHAUN
+      }
     }
+    confirm_db_connect();
+    return $connection;
   }
 
   function db_disconnect($connection) {
@@ -21,10 +21,8 @@
 
   function confirm_db_connect() {
     if(mysqli_connect_errno()) {
-      $msg = "Database connection failed: ";
-      $msg .= mysqli_connect_error();
-      $msg .= " (" . mysqli_connect_errno() . ")";
-      exit($msg);
+      return false;
     }
+    return true;
   }
 ?>
