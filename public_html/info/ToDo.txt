@@ -6,7 +6,7 @@ AH - (Tutor) Send Appointment Confirmation Emails
 AH - (Tutor) Create Missing Subject(s) Field
 AH - (Tutor) Select Multiple Subject for Profile Registration & Modification
 
-SG - (Tutor) Display Upcoming Confirmed Appointments for days beyond current date
-SG - (Tutor) Display All Unconfirmed Appointments
+SG X (Tutor) Display Upcoming Confirmed Appointments for days beyond current date
+SG X (Tutor) Display All Unconfirmed Appointments
 SG - (Tutor) Modify Availability
 SG - (Tutor) Confirm / Deny Appointment
