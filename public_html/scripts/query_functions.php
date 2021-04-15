@@ -22,7 +22,7 @@ function get_appointments($date) //remove argument requirement for final version
         die ('There was an error running query[' . $connection->error . ']');
     }
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["subject"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+        echo "<tr><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
     }
 }
 

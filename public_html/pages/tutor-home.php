@@ -54,15 +54,15 @@
         <div class="content-item flex-item">
             <h2>Unconfirmed Appointments</h2>
             <table id="appt-table">
-                    <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Subject</th>
-                        <th>Student</th>
-                    </tr>
-                    <?php
-                        get_unconfirmed_appointments();
-                    ?>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th>Student</th>
+                </tr>
+                <?php
+                    get_unconfirmed_appointments();
+                ?>
             </table>
         </div>
     </div>

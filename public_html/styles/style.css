@@ -345,7 +345,7 @@ span.decline {
 }
 
 #appt-table tr td {
-    width: 30%;
+    width: 25%;
 }
 
 #appt-table tr:nth-child(even) {
