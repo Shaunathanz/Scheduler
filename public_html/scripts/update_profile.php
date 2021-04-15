@@ -5,7 +5,6 @@
     $email = $_POST['email'];
     $name = $_POST['FullName'];
     //password here
-    //$sql = "UPDATE Tutor SET name = " . $name . ", email = " . $email . " WHERE Tutor.name = " . $_SESSION['activeUser']['name'] . " AND Tutor.email = " . $_SESSION['activeUser']['email'];;
     $user['name'] = $name;
     $user['email'] = $email;
     $user['password'] = $_SESSION['activeUser']['password'];
