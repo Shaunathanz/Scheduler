@@ -3,13 +3,14 @@ require_once('initialize.php');
 
 //CONTAINS ALL FUNCTIONS FOR MANIPULATING THE DATABASE
 
-function get_appointments($date)
+/**Fetch Today's Appointments or Appointments for a Specific Date */
+function get_appointments($date) //remove argument requirement for final version
 {
     global $db;
 
     if(null == $date) {
         //get today's appointments
-        $date = substr(date(DATE_ATOM), 0, 10);
+        $date = date("Y-m-d");
     }
     $sql = "SELECT Appointment.time_start, Appointment.time_end, Appointment.subject, Student.name
         FROM Appointment
@@ -21,7 +22,61 @@ function get_appointments($date)
         die ('There was an error running query[' . $connection->error . ']');
     }
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+        echo "<tr><td>" . $row["subject"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+    }
+}
+
+/**Fetch All Confirmed Appointments Excluding Current Date */
+function get_confirmed_appointments()
+{
+    global $db;
+
+    //$date = date_create(date("Y-m-d")); //use this in final version
+    $date = date_create('2021-04-10'); //test
+    $dateStr = $date->format('Y-m-d');
+
+    if(null == $date) {
+        //error
+        echo 'error';
+    }
+    $sql = "SELECT Appointment.date, Appointment.time_start, Appointment.time_end, Appointment.subject, Student.name
+        FROM Appointment
+        INNER JOIN Tutor ON Tutor.id = Appointment.tutor_id AND Tutor.id = " . $_SESSION['activeUser']['id'] . " AND Appointment.date > DATE '" . $dateStr . "' AND Appointment.status = 'Confirmed' 
+        INNER JOIN Student ON Student.id = Appointment.student_id ORDER BY Appointment.time_start ASC";
+    //echo $sql;
+
+    if (!$result = $db->query($sql)) {
+        die ('There was an error running query[' . $connection->error . ']');
+    }
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["date"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+    }
+}
+
+/**Fetch All Unconfirmed Appointments */
+function get_unconfirmed_appointments()
+{
+    global $db;
+
+    //$date = date_create(date("Y-m-d")); //use this in final version
+    $date = date_create('2021-04-10'); //test
+    $dateStr = $date->format('Y-m-d');
+
+    if(null == $date) {
+        //error
+        echo 'error';
+    }
+    $sql = "SELECT Appointment.date, Appointment.time_start, Appointment.time_end, Appointment.subject, Student.name
+        FROM Appointment
+        INNER JOIN Tutor ON Tutor.id = Appointment.tutor_id AND Tutor.id = " . $_SESSION['activeUser']['id'] . " AND Appointment.date >= DATE '" . $dateStr . "' AND Appointment.status = 'Unconfirmed' 
+        INNER JOIN Student ON Student.id = Appointment.student_id ORDER BY Appointment.time_start ASC";
+    //echo $sql;
+
+    if (!$result = $db->query($sql)) {
+        die ('There was an error running query[' . $connection->error . ']');
+    }
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["date"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
     }
 }
 

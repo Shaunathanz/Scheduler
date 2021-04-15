@@ -30,7 +30,7 @@
                 <th>Student</th>
             </tr>
             <?php 
-                //echo get_appointments($date); //use this in actual completed version
+                //echo get_appointments(); //use this in actual completed version
                 get_appointments('\'2021-04-10\''); //display test data
             ?>
         </table>
@@ -41,12 +41,13 @@
             <h2>Confirmed Appointments</h2>
             <table id="appt-table">
                 <tr>
+                    <th>Date</th>
                     <th>Time</th>
                     <th>Subject</th>
                     <th>Student</th>
                 </tr>
                 <?php
-                    //get_unconfirmed_appointments('\'2021-04-10\''); //display test data
+                    get_confirmed_appointments();
                 ?>
             </table>
         </div>
@@ -54,12 +55,13 @@
             <h2>Unconfirmed Appointments</h2>
             <table id="appt-table">
                     <tr>
+                        <th>Date</th>
                         <th>Time</th>
                         <th>Subject</th>
                         <th>Student</th>
                     </tr>
                     <?php
-                        //get_unconfirmed_appointments('\'2021-04-10\''); //display test data
+                        get_unconfirmed_appointments();
                     ?>
             </table>
         </div>
