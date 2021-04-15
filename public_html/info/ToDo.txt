@@ -1,18 +1,12 @@
-Shaun
-- Finalize Schema
-- Connect website to database
-- Implement Login System
-- Populate database with data
-- Code Cleanup
-- Upload database and assignment to school server before Monday due date
-- Display Upcoming Appointments
+MISSING FEATURES
 
-Jason
-- Modify Profile Fields to reflect only data that we're actually storing
-- Populate Tutor Profile Fields with all data (except tutor id and the image path) whenever the tutor Profile form is displayed
-- Add functionality for updating the currently logged in tutor's information in the database based on what information the form's field currently contain via use of an "update" button
+AH - (Student) Schedule An Appointment
+AH - (Tutor) Request Time Off
+AH - (Tutor) Send Appointment Confirmation Emails
+AH - (Tutor) Create Missing Subject(s) Field
+AH - (Tutor) Select Multiple Subject for Profile Registration & Modification
 
-Arielle
-- Add functionality for inserting the tutor information into the database from the Tutor Registration page
-- Add functionality for the tutor image to be updated on the Profile form popup
-- Fix the CSS for the popup so that it doesn't clip offscreen on the sides when the window width is small
+SG - (Tutor) Display Upcoming Confirmed Appointments for days beyond current date
+SG - (Tutor) Display All Unconfirmed Appointments
+SG - (Tutor) Modify Availability
+SG - (Tutor) Confirm / Deny Appointment
