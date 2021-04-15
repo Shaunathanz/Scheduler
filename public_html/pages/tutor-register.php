@@ -97,7 +97,7 @@ function test_input($data) {
 	  <option value="Journalism">Journalism</option>  
 	</select>   
   <br><br>
-  <input type="submit" name="submit" value="Submit">  
+  <input type="submit" name="submit" value="Register">  
 </form>
 
 

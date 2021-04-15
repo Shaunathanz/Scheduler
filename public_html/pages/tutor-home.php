@@ -20,26 +20,48 @@
             <p>Welcome back, <i><?php echo $_SESSION["activeUser"]["name"];?></i></p>
         </div>
     </div>
+
     <div class="content-item">
-        <div style="margin:auto">
-            <img height="100%" width="100%" src="../images/Calendar.JPG" />
-        </div>
+        <h2>Today's Appointments</h2>
+        <table id="appt-table">
+            <tr>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Student</th>
+            </tr>
+            <?php 
+                //echo get_appointments($date); //use this in actual completed version
+                get_appointments('\'2021-04-10\''); //display test data
+            ?>
+        </table>
     </div>
 
     <div class="content-flex-area">
         <div class="content-item flex-item">
-            <h2>Upcoming Appointments</h2>
+            <h2>Confirmed Appointments</h2>
             <table id="appt-table">
                 <tr>
                     <th>Time</th>
                     <th>Subject</th>
                     <th>Student</th>
                 </tr>
-                <?php 
-                    //echo get_appointments($date); //use this in actual completed version
-                    get_appointments('\'2021-04-10\''); //display test data
+                <?php
+                    //get_unconfirmed_appointments('\'2021-04-10\''); //display test data
                 ?>
-            </table> 
+            </table>
+        </div>
+        <div class="content-item flex-item">
+            <h2>Unconfirmed Appointments</h2>
+            <table id="appt-table">
+                    <tr>
+                        <th>Time</th>
+                        <th>Subject</th>
+                        <th>Student</th>
+                    </tr>
+                    <?php
+                        //get_unconfirmed_appointments('\'2021-04-10\''); //display test data
+                    ?>
+            </table>
         </div>
     </div>
 
