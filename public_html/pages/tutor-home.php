@@ -74,16 +74,16 @@
     <div id="popupBG">
         <!--Each popup is of class "popup" and needs a unique id to provide as an argument to the showPopup() function-->
         <div class="popup" id="calendar">
-            <h1>Current Tutor Calendar</h1>
+            <!--<h1>Current Tutor Calendar</h1>
             <div>
 			    <input type="button" value="Block Calendar" class="homebutton" id="btnHome" onClick="window.location = ''" />
             </div>
-			<br></br>
+			<br></br>-->
 			<div class="clearfix"></div>
             <div style="margin:auto">
 				<div id="mYcalendar"></div>
             </div>
-            <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
+            <button class="popupBtn" type="button" onClick="hidePopup();">Close</button>
         </div>
         <div class="popup" id="appointment">
             <h1>Your Appointment</h1>
@@ -119,7 +119,7 @@
 					</div>
 				</div>
 			</div>
-            <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
+            <button class="popupBtn" type="button" onClick="hidePopup();">Close</button>
         </div>
         <div class="popup" id="profile">
             <?php
@@ -262,7 +262,7 @@
 				</select>
 				<br><br>
                 <!--<input type="submit" name="submit" value="Submit"> -->
-                <button type="button" onClick="hidePopup();">Cancel</button>
+                <button type="button" onClick="hidePopup();">Close</button>
                 <input type="submit" value="Update & Logout" id="updateBtn"> 
             </form> 
         </div>

@@ -233,17 +233,18 @@ function delete_user($id) {
 function insert_appointment($data){
 	global $db;
 	$tutorid = $data['teacher'];
-	$day = date("Y-m-d",strtotime($data['day']));
-	$timein = $data['timein'];
-	$timeout = $data['timeout'];
+	$date = date("Y-m-d");
+	$timein = substr($data['timein'], 0, 2) . substr($data['timein'], 3, 2);
+    //echo "Time in: " . $timein . $timeout . '<br>';
+	$timeout = substr($data['timeout'], 0, 2) . substr($data['timeout'], 3, 2);
 	$subject = $data['subject'];
-	$stid =3;
-	
-	$sql = "INSERT INTO appointment ";
+	$stid = 3; //TO DO: Fix
+	//We need to search the Student table for a student with the same Name & Email. If exists, get the id and instert into new Appointment tuple. Else, create a new Student tuple and get that id to insert into Appointment tuple
+	$sql = "INSERT INTO Appointment ";
 	$sql .= " (tutor_id, date, time_start, time_end, subject, student_id) ";
 	$sql .= "VALUES (";
     $sql .= "'" . $tutorid . "',";
-    $sql .= "'" . $day . "',";
+    $sql .= "'" . $date . "',";
 	$sql .= "'" . $timein . "',";
 	$sql .= "'" . $timeout . "',";
 	$sql .= "'" . $subject . "',";

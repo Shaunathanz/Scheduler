@@ -15,12 +15,12 @@
   $( function() {
     $( "#datepicker" ).datepicker();
 	$('.timepicker').timepicker({
-    timeFormat: 'h:mm p',
+    timeFormat: 'HH:mm',
     interval: 60,
-    minTime: '10',
-    maxTime: '6:00pm',
-    defaultTime: '11',
-    startTime: '10:00',
+    minTime: '7',
+    maxTime: '18',
+    defaultTime: '7',
+    startTime: '07:00',
     dynamic: false,
     dropdown: true,
     scrollbar: true
@@ -46,13 +46,13 @@ $firstname = $lastname = $email = $gender = $comment = $website = $major =  "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	insert_appointment($_POST);
 }
-$sql = "SELECT * FROM subject";
+$sql = "SELECT * FROM Subject";
 $result = $db->query($sql);
 
 ?>
 
 <h2>Student Portal</h2> <!-- TODO: Make these fields make sense for the context of the page -->
-<p>Welcome to te student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your section has been confirmed or cancel </p>
+<p>Welcome to the student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your section has been confirmed or cancelled </p>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   Select subjects 
@@ -81,14 +81,14 @@ $result = $db->query($sql);
   Select teacher 
   <select name="teacher" required class="form-select form-control">
 		<?php
-		$sql = "SELECT * FROM tutor";
-		$result = $db->query($sql);
-		while($row = $result->fetch_assoc()) {
-			//print_r($row);
-			$_id = $row['id'];
-			$name = $row['name'];
-			echo "<option value='".$_id."'>".$name."</option>";
-		}
+      $sql = "SELECT * FROM Tutor";
+      $result = $db->query($sql);
+      while($row = $result->fetch_assoc()) {
+        //print_r($row);
+        $_id = $row['id'];
+        $name = $row['name'];
+        echo "<option value='".$_id."'>".$name."</option>";
+      }
 		?>
   </select>
   <br><br>
@@ -103,10 +103,7 @@ $result = $db->query($sql);
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
-
-<?php
-?>
-    </div>
+</div>
 </body>
 </html>
 
