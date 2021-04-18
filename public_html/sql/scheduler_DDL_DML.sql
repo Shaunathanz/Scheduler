@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 15, 2021 at 09:37 PM
+-- Generation Time: Apr 18, 2021 at 10:13 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -48,8 +48,18 @@ INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `
 (1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
 (2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
 (4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(10, 1, '2021-04-11', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
-(11, 1, '2021-04-11', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
+(13, 1, '2021-04-11', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
+(12, 1, '2021-04-11', 1000, 1200, 'Test', 'Confirmed', 1, b'0'),
+(14, 1, '2021-04-11', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
+(15, 1, '2021-04-11', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
+(16, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
+(18, 1, '2021-04-13', 1000, 1200, 'Test', 'Confirmed', 1, b'0'),
+(17, 1, '2021-04-15', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
+(19, 1, '2021-04-17', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
+(11, 1, '2021-04-18', 100, 200, 'Algebra', 'Unconfirmed', 3, b'0'),
+(20, 1, '2021-04-20', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
+(21, 1, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
+(22, 1, '2021-04-26', 100, 200, 'Algebra', 'Unconfirmed', 3, b'0'),
 (3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0'),
 (9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', 1, b'0'),
 (9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', 3, b'0'),
@@ -139,18 +149,20 @@ CREATE TABLE `Tutor` (
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `img` varchar(400) NOT NULL
+  `img` varchar(400) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Tutor`
 --
 
-INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(4, 'Dr. Jan Itor', 'broom-life@school.com', 'test', ''),
-(3, 'History Person', 'history@school.com', 'test', ''),
-(2, 'Math Lady', 'math@school.com', 'test', ''),
-(1, 'Test Tutor', 'test@test.com', 'test', '');
+INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`, `phone`, `subject`) VALUES
+(4, 'Dr. Jan Itor', 'broom-life@school.com', 'test', '1618586792-b.jpg', '123456', ''),
+(3, 'History Person', 'history@school.com', 'test', '', '', ''),
+(2, 'Math Lady', 'math@school.com', 'test', '', '', ''),
+(1, 'Test Tutor', 'test@test.com', 'test', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +208,7 @@ ALTER TABLE `Tutor`
 -- AUTO_INCREMENT for table `Appointment`
 --
 ALTER TABLE `Appointment`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `Student`
@@ -208,7 +220,7 @@ ALTER TABLE `Student`
 -- AUTO_INCREMENT for table `Tutor`
 --
 ALTER TABLE `Tutor`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
