@@ -13,7 +13,7 @@
 <body>
     <!--Nav Bar + Logo-->
     <?php session_start();?>
-    <?php if($_SESSION["activeUser"] == array()) {echo "You do not have permission to access this page!";header("Refresh: 2; URL=../index.php");exit;}?>
+    <?php if($_SESSION["activeUser"] == array()) {echo "You do not have permission to access this page!";header("Refresh: 1.5; URL=../index.php");exit;}?>
     <?php require '../shared/logo.php' ; ?>
     <?php require '../shared/tutor-nav.php' ; ?>
 

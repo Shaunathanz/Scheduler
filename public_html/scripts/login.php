@@ -10,15 +10,15 @@
             die ('There was an error running query[' . $connection->error . ']');
         } else if ($result->num_rows == 0) {
             echo "Invalid username/password combination!";
-            header("Refresh: 2; URL=../index.php");
+            header("Refresh: 1.5; URL=../index.php");
         } else {
             echo "Login sucess!";
             session_start();
             $_SESSION["activeUser"] = $result->fetch_assoc();
-            header("Refresh: 2; URL=../pages/tutor-home.php");
+            header("Refresh: 1.5; URL=../pages/tutor-home.php");
         }
     } else {
         echo "Please enter a valid email address!";
-        header("Refresh: 2; URL=../index.php");
+        header("Refresh: 1.5; URL=../index.php");
     }
 ?>

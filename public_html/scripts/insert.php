@@ -12,5 +12,5 @@ if (!insert_user($Fullname, $email, $password, '')){
 } else {
     echo 'Profile created successfully!';
 }
-header("Refresh: 2; URL=../index.php");
+header("Refresh: 1.5; URL=../index.php");
 ?>
