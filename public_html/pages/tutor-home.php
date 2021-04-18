@@ -2,7 +2,10 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css?<?php echo time();?>" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../assets/fullcalendar/main.css?<?php echo time();?>" media="screen" />
     <script src="../scripts/script.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="../assets/fullcalendar/main.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Tutor</title>
 </head>
@@ -72,11 +75,13 @@
         <!--Each popup is of class "popup" and needs a unique id to provide as an argument to the showPopup() function-->
         <div class="popup" id="calendar">
             <h1>Current Tutor Calendar</h1>
-            <p>
-			    <input type="button" value="Schedule A Time" class="homebutton" id="btnHome" onClick="window.location = ''" />
-            </p>
+            <div>
+			    <input type="button" value="Block Calendar" class="homebutton" id="btnHome" onClick="window.location = ''" />
+            </div>
+			<br></br>
+			<div class="clearfix"></div>
             <div style="margin:auto">
-                <img height="100%" width="100%" src="../images/Calendar.JPG" />
+				<div id="mYcalendar"></div>
             </div>
             <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
         </div>
@@ -106,10 +111,10 @@
 				<div class="row">
 					<div class="submit_area">
 						<div class="sub_group">
-							<a href="tutor-home.php"><span class="success"><i class="icon-ok"></i></span><span class="acpt_sucess">Accept</span></a>
+							<a  href="mailto:"><span class="success"><i class="icon-ok"></i></span><span class="acpt_sucess">Accept</span></a>
 						</div>
 						<div class="sub_group">
-							<a href="tutor-home.php"><span class="decline"><i class="icon-remove"></i></span><span class="dec_sucess">Decline</span></a>
+							<a href="mailto:"><span class="decline"><i class="icon-remove"></i></span><span class="dec_sucess">Decline</span></a>
 						</div>
 					</div>
 				</div>
@@ -200,13 +205,39 @@
                 $data = htmlspecialchars($data);
                 return $data;
             }
+			$_id = (isset($_SESSION['activeUser']['id'])) ? $_SESSION['activeUser']['id'] : "";
+			$sql = "SELECT * FROM Tutor WHERE id=$_id";
+				
+                if (!$result = $db->query($sql)) {
+                    die ('There was an error running query[' . $connection->error . ']');
+                }
+				//print_r($result->fetch_row());
+                while($row = $result->fetch_assoc()) {
+					/*$firstname = (isset($row['fname'])) ? $row['fname'] : "";
+					$lastname = (isset($row['lname'])) ? $row['lname'] : "";
+					$email = (isset($row['email'])) ? $row['email'] : "";
+					$comment = (isset($row['comment'])) ? $row['comment'] : "";
+					$gender = (isset($row['gender'])) ? $row['gender'] : "";
+					$sub_knowledge = (isset($row['sub_knowledge'])) ? $row['sub_knowledge'] : "";
+					$degree = (isset($row['degree'])) ? $row['degree'] : "";
+					$about = (isset($row['about'])) ? $row['about'] : "";*/
+					$phone = (isset($row['phone'])) ? $row['phone'] : "";
+					$img = (isset($row['img'])) ? $row['img'] : "";
+					if(!empty($img)){
+						$_imgurl="../images/".$img;
+					}else{
+						$_imgurl="../images/blankAvatar.jpg";
+					}
+                }
+				
             ?>
             <h2>View / Edit Info</h2>
-            <form action="../scripts/update_profile.php" method="POST">
+            <form action="../scripts/update_profile.php" method="POST" enctype="multipart/form-data">
                 <div class="profile_pic">	
                     <div class="profile_pic_block">
-                        <img height="200px" width="auto" src="../images/blankAvatar.jpg">
+                        <img height="200px" style="max-width:261px" width="auto" src="<?php echo $_imgurl; ?>">                        
                         <a class="edit_icon" href="tutor-profile.php"><i class="icon-pencil"></i> </a>
+						<input class="" name="profileImage" type="file"/>
                     </div>	
                 </div>
                 <p><span class="error">* required field</span></p>	
@@ -218,11 +249,63 @@
                 <!--Need password field-->
                 
                 <br><br>
+				Phone: <input type="text" name="phone" value="<?php echo $phone;?>">
+                
+                <br><br>
+				Subjects :
+				<select id="subject" name="subject" multiple required>  
+	   
+				  <option value="Mathematics">Mathematics</option>  
+				  <option value="Science">Science</option>  
+				  <option value="Handwriting">Handwriting</option>  
+				  <option value="Journalism">Journalism</option>  
+				</select>
+				<br><br>
                 <!--<input type="submit" name="submit" value="Submit"> -->
-                <button class="popupBtn" type="button" onClick="hidePopup();">Cancel</button>
-                <input class="popupBtn" type="submit" value="Update & Logout" id="updateBtn"> 
+                <button type="button" onClick="hidePopup();">Cancel</button>
+                <input type="submit" value="Update & Logout" id="updateBtn"> 
             </form> 
         </div>
     </div>
+<style>
+.fc-view-harness.fc-view-harness-active{
+	height: 683.704px !important;
+}
+
+.fc-col-header{
+	width: 921px !important;
+}
+.fc-daygrid-body.fc-daygrid-body-balanced{
+	width: 921px !important;
+}
+.fc-scrollgrid-sync-table{
+width: 921px !important; 
+height: 658px !important;
+}
+</style>	
+<script>
+var calendarEl = document.getElementById('mYcalendar');
+    var calendar;
+	document.addEventListener('DOMContentLoaded', function() {
+
+        calendar = new FullCalendar.Calendar(calendarEl, {
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+          },
+          initialDate: '<?php echo date('Y-m-d') ?>',
+          weekNumbers: true,
+          navLinks: true, // can click day/week names to navigate views
+          editable: false,
+          selectable: true,
+          nowIndicator: true,
+          dayMaxEvents: true, // allow "more" link when too many events
+          // showNonCurrentDates: false,
+          events: []
+        });
+        calendar.render();
+  });
+</script>	
 </body>
 </html>

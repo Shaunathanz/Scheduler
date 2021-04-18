@@ -154,12 +154,40 @@ function insert_user($name, $email, $password, $img) {
     }
 }
 
-function update_user($user) {
+function update_user($user,$img="") {
     global $db;
-
+	
+	$error =0;	$profileImageName="";
+	if(isset($img)){
+		if(!empty($img['profileImage']['name'])){
+			
+		$profileImageName = time() . '-' . $img["profileImage"]["name"];
+		$target_dir = "../images/";
+		$target_file = $target_dir . basename($profileImageName);
+		if($img['profileImage']['size'] > 200000) {
+		  $msg = "Image size should not be greated than 200Kb";
+		  $msg_class = "alert-danger";
+		  $error++;
+		}
+		// check if file exists
+		if(file_exists($target_file)) {
+		  $msg = "File already exists";
+		  $msg_class = "alert-danger";
+		  $error++;
+		}
+		move_uploaded_file($img["profileImage"]["tmp_name"], $target_file);
+		}
+	}
+	
     $sql = "UPDATE Tutor SET ";
     $sql .= "name='" . $user['name'] . "', ";
     $sql .= "email='" . $user['email'] . "', ";
+    $sql .= "phone='" . $user['phone'] . "', ";
+	
+	if(!empty($profileImageName)){
+		$sql .= "img='" . $profileImageName . "', "; //TO DO: Image upload feature
+	}
+	
     $sql .= "password='" . $user['password'] . "' ";
     //$sql .= "img='" . $user['img'] . "' "; //TO DO: Image upload feature
     $sql .= "WHERE id='" . $user['id'] . "' ";
@@ -200,6 +228,37 @@ function delete_user($id) {
         db_disconnect($db);
         exit;
     }
+}
+
+function insert_appointment($data){
+	global $db;
+	$tutorid = $data['teacher'];
+	$day = date("Y-m-d",strtotime($data['day']));
+	$timein = $data['timein'];
+	$timeout = $data['timeout'];
+	$subject = $data['subject'];
+	$stid =3;
+	
+	$sql = "INSERT INTO appointment ";
+	$sql .= " (tutor_id, date, time_start, time_end, subject, student_id) ";
+	$sql .= "VALUES (";
+    $sql .= "'" . $tutorid . "',";
+    $sql .= "'" . $day . "',";
+	$sql .= "'" . $timein . "',";
+	$sql .= "'" . $timeout . "',";
+	$sql .= "'" . $subject . "',";
+	$sql .= "'" . $stid;
+    $sql .= "');";
+	$result = mysqli_query($db, $sql);
+	if($result) {
+        return true;
+    } else {
+        // INSERT failed
+        echo 'Insert Error: ' . mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+	
 }
 
 

@@ -5,6 +5,28 @@
     <script src="../scripts/script.js"></script>
     <meta charset="utf-8"/>
     <title id="tab_name">Student</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+	$('.timepicker').timepicker({
+    timeFormat: 'h:mm p',
+    interval: 60,
+    minTime: '10',
+    maxTime: '6:00pm',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+  } );
+  </script>
 </head>
 
 <body>
@@ -12,6 +34,7 @@
     <?php require_once '../scripts/initialize.php'; ?>
     <?php require '../shared/logo.php' ; ?>
     <?php //require '../shared/student-nav.php' ; ?>
+	
 
     <!--Page Contents-->
     <div class="content-item">
@@ -21,99 +44,67 @@ $firstnameErr = $lastnameErr = $emailErr = $subject= $genderErr = $websiteErr = 
 $firstname = $lastname = $email = $gender = $comment = $website = $major =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["firstname"])) {
-    $nameErr = "Name is required";
-  } else {
-    $firstname = test_input($_POST["firstname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) {
-      $firstnameErr = "Only letters and white space allowed";
-    }
-	
-  }
-  
-  if (empty($_POST["lastname"])) {
-    $nameErr = "Last Name is required";
-  } else {
-    $lastname = test_input($_POST["lastname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) {
-      $lastnameErr = "Only letters and white space allowed";
-    }
-	
-  }
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-    }
-  }
-  if (empty($_POST["subject"])) {
-    $subject = "";
-  } else {
-    $subject = test_input($_POST["subject"]);
-  }
-   
-
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
-  } else {
-    $gender = test_input($_POST["gender"]);
-  }
+	insert_appointment($_POST);
 }
+$sql = "SELECT * FROM subject";
+$result = $db->query($sql);
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
 ?>
 
-<h2>Schedule an Appointment</h2> <!-- TODO: Make these fields make sense for the context of the page -->
+<h2>Student Portal</h2> <!-- TODO: Make these fields make sense for the context of the page -->
+<p>Welcome to te student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your section has been confirmed or cancel </p>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  First Name <input type="text" name="firstname" value="<?php echo $firstname;?>">
+  Select subjects 
+  <select name="subject" required class="form-select form-control">
+		<?php
+		while($row = $result->fetch_assoc()) {
+			//print_r($row);
+			$_id = $row['tutor_id'];
+			$subject = $row['subject'];
+			echo "<option value='".$subject."'>".$subject."</option>";
+		}
+		?>
+  </select>
   <span class="error">* <?php echo $firstnameErr;?></span>
   <br><br>
-  Last Name: <input type="text" name="lastname" value="<?php echo $lastname;?>">
+  Select day: <input type="text" id="datepicker" name="day" value="">
   <span class="error">* <?php echo $lastnameErr;?></span>
   <br><br>
-  Email: <input type="text" name="email" value="<?php echo $email;?>">
+  Select time in: <input type="text" class="timepicker" name="timein" value="">
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
-  <label for="major">Academic Major:</label>
-	<select id="major" name="major" required>  
-	  <option value="">Select</option>}  
-	  <option value="BUSINESS">Business</option>  
-	  <option value="Communications">Communications</option>  
-	  <option value="Computer Sciencce">Computer Sciencce</option>  
-	  <option value="Education">Education</option>  
-	</select>   
+  Select time out: <input type="text" class="timepicker" name="timeout" value="">
+  <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
+  
+  Select teacher 
+  <select name="teacher" required class="form-select form-control">
+		<?php
+		$sql = "SELECT * FROM tutor";
+		$result = $db->query($sql);
+		while($row = $result->fetch_assoc()) {
+			//print_r($row);
+			$_id = $row['id'];
+			$name = $row['name'];
+			echo "<option value='".$_id."'>".$name."</option>";
+		}
+		?>
+  </select>
+  <br><br>
+  Tell us about the assignment
+  <input type="text" name="assignment" value="">
+  <br><br>
+  Enter name
+  <input type="text" name="name" value="">
+  <br><br>
+  Enter email
+  <input type="text" name="email" value="">
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
 
 <?php
-echo "<h2>Your Input:</h2>";
-echo $firstname;
-echo "<br>";
-echo $lastname;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $major;
-echo "<br>";
-echo $gender;
 ?>
     </div>
 </body>
