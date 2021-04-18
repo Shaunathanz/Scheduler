@@ -52,7 +52,7 @@ $result = $db->query($sql);
 ?>
 
 <h2>Student Portal</h2> <!-- TODO: Make these fields make sense for the context of the page -->
-<p>Welcome to the student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your section has been confirmed or cancelled </p>
+<p>Welcome to the student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your session has been confirmed or cancelled </p>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   Select subjects 
