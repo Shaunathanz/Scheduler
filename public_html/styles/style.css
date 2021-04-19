@@ -151,13 +151,13 @@ body
 
 /* SPLASH PAGE CSS */
 
-#splash-btn-tutor 
-{
+#splash-btn-tutor {
     border-color: #FFB3E7;
     border-style: double;
     user-select: none;
     border-width: 2px;
-    height: 69px;
+    min-height: 69px;
+    max-height: 69px;
 }
 
 #splash-btn-tutor:hover 
@@ -172,7 +172,8 @@ body
     border-style: double;
     user-select: none;
     border-width: 2px;
-    height: 69px;
+    min-height: 69px;
+    max-height: 69px;
 }
 
 #splash-btn-student:hover 
