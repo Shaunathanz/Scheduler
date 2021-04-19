@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2021 at 01:26 AM
+-- Generation Time: Apr 19, 2021 at 08:36 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -62,10 +62,109 @@ INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `
 (21, 1, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
 (22, 1, '2021-04-26', 100, 200, 'Algebra', 'Unconfirmed', 3, b'0'),
 (3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0'),
+(24, 2, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
+(28, 2, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
+(26, 2, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', 3, b'0'),
+(27, 3, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
 (9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', 1, b'0'),
 (9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', 3, b'0'),
-(8, 4, '2021-04-10', 100, 200, 'Advanced Mopping Techniques', 'Unconfirmed', 2, b'0'),
-(8, 4, '2021-04-11', 100, 200, 'Mopping Basics', 'Unconfirmed', 3, b'0');
+(25, 3, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Available`
+--
+
+CREATE TABLE `Available` (
+  `tutor_id` int(3) NOT NULL,
+  `time_start` int(4) NOT NULL,
+  `time_end` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Available`
+--
+
+INSERT INTO `Available` (`tutor_id`, `time_start`, `time_end`) VALUES
+(1, 700, 1500),
+(2, 900, 1700),
+(3, 1500, 1900),
+(4, 1200, 1300);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Student`
+--
+
+CREATE TABLE `Student` (
+  `id` int(7) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Student`
+--
+
+INSERT INTO `Student` (`id`, `name`, `email`) VALUES
+(1, 'Shaun G.', 'example@email.com'),
+(2, 'Kayla J.', 'kayjay@email.com'),
+(3, 'Jen H.', 'jenh@email.com'),
+(4, 'Josh R.', 'jrnottolkien@email.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Subject`
+--
+
+CREATE TABLE `Subject` (
+  `tutor_id` int(3) NOT NULL,
+  `subject` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Subject`
+--
+
+INSERT INTO `Subject` (`tutor_id`, `subject`) VALUES
+(1, 'Test'),
+(2, 'Algebra'),
+(2, 'Calculus'),
+(2, 'Discrete Mathematics'),
+(2, 'How to Avoid Working'),
+(2, 'Pre Calculus'),
+(3, 'Another History Topic'),
+(3, 'European History'),
+(3, 'How to Avoid Working'),
+(3, 'Some History Topic'),
+(4, 'How to Avoid Working'),
+(4, 'Sweeping Floor Basics');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Tutor`
+--
+
+CREATE TABLE `Tutor` (
+  `id` int(3) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `img` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Tutor`
+--
+
+INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
+(3, 'History Person', 'history@school.com', 'test', ''),
+(2, 'Math Lady', 'math@school.com', 'test', ''),
+(1, 'Test Tutor', 'test@test.com', 'test', '');
 
 --
 -- Indexes for dumped tables
@@ -79,6 +178,32 @@ ALTER TABLE `Appointment`
   ADD KEY `appt_id` (`id`);
 
 --
+-- Indexes for table `Available`
+--
+ALTER TABLE `Available`
+  ADD PRIMARY KEY (`tutor_id`);
+
+--
+-- Indexes for table `Student`
+--
+ALTER TABLE `Student`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Subject`
+--
+ALTER TABLE `Subject`
+  ADD PRIMARY KEY (`tutor_id`,`subject`),
+  ADD KEY `tutor_id` (`tutor_id`);
+
+--
+-- Indexes for table `Tutor`
+--
+ALTER TABLE `Tutor`
+  ADD PRIMARY KEY (`email`) USING BTREE,
+  ADD KEY `tutor_id` (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -86,7 +211,31 @@ ALTER TABLE `Appointment`
 -- AUTO_INCREMENT for table `Appointment`
 --
 ALTER TABLE `Appointment`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `Student`
+--
+ALTER TABLE `Student`
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `Tutor`
+--
+ALTER TABLE `Tutor`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Tutor`
+--
+ALTER TABLE `Tutor`
+  ADD CONSTRAINT `Delete Tutor Appointments` FOREIGN KEY (`id`) REFERENCES `Appointment` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Delete Tutor Availability` FOREIGN KEY (`id`) REFERENCES `Available` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Delete Tutor Subjects` FOREIGN KEY (`id`) REFERENCES `Subject` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
