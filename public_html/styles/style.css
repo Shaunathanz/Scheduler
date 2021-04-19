@@ -93,12 +93,11 @@ body
     min-height: 0px;
 }
 
-.content-item 
-{
+.content-item {
     display: block;
     overflow: scroll;
     max-width: 1080px;
-    min-height: 81px;
+    min-height: 228px;
     box-shadow: 0px 2px 10px gray;
     border-radius: 12px;
     margin: auto;
@@ -130,9 +129,8 @@ body
 }
 
 /* can display two boxes side-by-side by default */
-.content-item.flex-item 
-{
-    height: 170px;
+.content-item.flex-item {
+    height: 228px;
     margin: 0px;
     box-shadow: 0px 2px 10px gray;
     border-width: 1px;
