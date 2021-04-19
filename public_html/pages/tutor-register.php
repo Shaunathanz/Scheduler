@@ -89,7 +89,7 @@ function test_input($data) {
     Password: <input type="text" name="password" value="<?php echo $password;?>">
   <br><br>
   <label for="Subject">Subject(s) of Knowledge:</label>
-	<select id="subject" name="subject" multiple required>  
+	<select id="subject" name="subject[]" size = 4 multiple required>  
 	  <option value="Mathematics">Mathematics</option>  
 	  <option value="Science">Science</option>  
 	  <option value="Handwriting">Handwriting</option>  
