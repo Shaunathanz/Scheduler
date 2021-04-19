@@ -22,7 +22,11 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+DROP TABLE IF EXISTS `Tutor`;
+DROP TABLE IF EXISTS `Appointment`;
+DROP TABLE IF EXISTS `Available`;
+DROP TABLE IF EXISTS `Student`;
+DROP TABLE IF EXISTS `Subject`;
 --
 -- Table structure for table `Appointment`
 --
