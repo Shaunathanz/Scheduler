@@ -213,15 +213,6 @@
                 }
 				//print_r($result->fetch_row());
                 while($row = $result->fetch_assoc()) {
-					/*$firstname = (isset($row['fname'])) ? $row['fname'] : "";
-					$lastname = (isset($row['lname'])) ? $row['lname'] : "";
-					$email = (isset($row['email'])) ? $row['email'] : "";
-					$comment = (isset($row['comment'])) ? $row['comment'] : "";
-					$gender = (isset($row['gender'])) ? $row['gender'] : "";
-					$sub_knowledge = (isset($row['sub_knowledge'])) ? $row['sub_knowledge'] : "";
-					$degree = (isset($row['degree'])) ? $row['degree'] : "";
-					$about = (isset($row['about'])) ? $row['about'] : "";*/
-					$phone = (isset($row['phone'])) ? $row['phone'] : "";
 					$img = (isset($row['img'])) ? $row['img'] : "";
 					if(!empty($img)){
 						$_imgurl="../images/".$img;
@@ -247,9 +238,6 @@
                 Email: <input type="text" name="email" value="<?php echo $_SESSION["activeUser"]["email"];?>">
                 <span class="error">* <?php echo $emailErr;?></span>
                 <!--Need password field-->
-                
-                <br><br>
-				Phone: <input type="text" name="phone" value="<?php echo $phone;?>">
                 
                 <br><br>
 				Subjects :

@@ -87,7 +87,6 @@ $result = $db->query($sql);
         //print_r($row);
         $_id = $row['id'];
         $name = $row['name'];
-        echo "<option value='".$_id."'>".$name."</option>";
       }
 		?>
   </select>
