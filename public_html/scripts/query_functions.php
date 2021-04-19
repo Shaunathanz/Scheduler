@@ -22,7 +22,7 @@ function get_appointments($date) //remove argument requirement for final version
         die ('There was an error running query[' . $connection->error . ']');
     }
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+        echo "<tr><td>" . formatTimeStr($row["time_start"]) . " - " . formatTimeStr($row["time_end"]) . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
     }
 }
 
@@ -49,7 +49,7 @@ function get_confirmed_appointments()
         die ('There was an error running query[' . $connection->error . ']');
     }
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["date"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+        echo "<tr><td>" . $row["date"] . "</td><td>" . formatTimeStr($row["time_start"]) . " - " . formatTimeStr($row["time_end"]) . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
     }
 }
 
@@ -76,8 +76,18 @@ function get_unconfirmed_appointments()
         die ('There was an error running query[' . $connection->error . ']');
     }
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["date"] . "</td><td>" . $row["time_start"] . " - " . $row["time_end"] . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
+        echo "<tr><td>" . $row["date"] . "</td><td>" . formatTimeStr($row["time_start"]) . " - " . formatTimeStr($row["time_end"]) . "</td><td>" . $row["subject"] . "</td><td>" . $row["name"] . "</td></tr>";
     }
+}
+
+function formatTimeStr($time) {
+    $formattedTime = "";
+    if(strlen($time) == 3) {
+        $formattedTime = substr($time, 0, 1) . ":" . substr($time, 1, 2);
+    } else {
+        $formattedTime = substr($time, 0, 2) . ":" . substr($time, 2, 2);
+    }
+    return $formattedTime;
 }
 
 function login_exists($email, $password) {
@@ -125,9 +135,11 @@ function find_user_by_id($id) {
 
 }
 
-function insert_user($name, $email, $password, $img) {
+/**
+ * (name, email, password, img, subjectsArr)
+ */
+function insert_user($name, $email, $password, $img, $subjects) {
     global $db;
-
 
     $sql = "INSERT INTO Tutor ";
     $sql .= " (name, email, password, img) ";
@@ -145,13 +157,59 @@ function insert_user($name, $email, $password, $img) {
 	//print_r($result);
     // For INSERT statements, $result is true/false
     if($result) {
-        return true;
+        //create entries in Subject 
+        $sql = "SELECT id FROM Tutor WHERE name = '" . $name . "' AND email = '" . $email . "';";
+        echo "Query for getting tutor_id: " . $sql . "<br>";
+        $result = $db->query($sql);
+
+        if($result) {
+            //add subjects
+            $row = $result->fetch_assoc();
+            $id = $row["id"];
+            echo "Arguments given to add_subjects(): " . $id . " " . $subjects . "<br>";
+            if(add_subject($id, $subjects))
+            {
+                return true;
+            } else {
+                // INSERT failed
+                echo 'Insert Error: ' . mysqli_error($db);
+                db_disconnect($db);
+                exit;
+            }
+        } else {
+            // INSERT failed
+            echo 'Insert Error: ' . mysqli_error($db);
+            db_disconnect($db);
+            exit;
+        }
     } else {
         // INSERT failed
         echo 'Insert Error: ' . mysqli_error($db);
         db_disconnect($db);
         exit;
     }
+}
+
+function add_subject($tutor_id, $subjects) {
+    global $db;
+
+    $sql = "";
+    foreach($subjects as &$subject) {
+        $sql = "INSERT INTO Subject ";
+        $sql .= " (tutor_id, subject) ";
+        $sql .= "VALUES (";
+        $sql .= "'" . $tutor_id . "',";
+        $sql .= "'" . $subject;
+        $sql .= "');";
+        $result = mysqli_query($db, $sql);
+        if(!$result) {
+            // INSERT failed
+            echo 'Insert Error: ' . mysqli_error($db);
+            db_disconnect($db);
+            exit;
+        }
+    }
+    return true;
 }
 
 function update_user($user,$img="") {
@@ -182,7 +240,7 @@ function update_user($user,$img="") {
     $sql = "UPDATE Tutor SET ";
     $sql .= "name='" . $user['name'] . "', ";
     $sql .= "email='" . $user['email'] . "', ";
-    $sql .= "phone='" . $user['phone'] . "', ";
+    //$sql .= "phone='" . $user['phone'] . "', ";
 	
 	if(!empty($profileImageName)){
 		$sql .= "img='" . $profileImageName . "', "; //TO DO: Image upload feature
