@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2021 at 05:31 PM
+-- Generation Time: Apr 23, 2021 at 07:58 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -170,8 +170,8 @@ CREATE TABLE `Tutor` (
 --
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(3, 'History Person', 'history@school.com', 'test', ''),
-(2, 'Math Lady', 'math@school.com', 'test', ''),
+(3, 'History Tutor', 'history@school.com', 'test', ''),
+(2, 'Math Tutor', 'math@school.com', 'test', ''),
 (1, 'Test Tutor', 'test@test.com', 'test', '');
 
 --
@@ -201,15 +201,14 @@ ALTER TABLE `Student`
 -- Indexes for table `Subject`
 --
 ALTER TABLE `Subject`
-  ADD PRIMARY KEY (`tutor_id`,`subject`),
-  ADD KEY `tutor_id` (`tutor_id`);
+  ADD PRIMARY KEY (`tutor_id`,`subject`);
 
 --
 -- Indexes for table `Tutor`
 --
 ALTER TABLE `Tutor`
   ADD PRIMARY KEY (`email`) USING BTREE,
-  ADD KEY `tutor_id` (`id`);
+  ADD KEY `tutor_id` (`id`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -232,18 +231,6 @@ ALTER TABLE `Student`
 --
 ALTER TABLE `Tutor`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `Tutor`
---
-ALTER TABLE `Tutor`
-  ADD CONSTRAINT `Delete Tutor Appointments` FOREIGN KEY (`id`) REFERENCES `Appointment` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Delete Tutor Availability` FOREIGN KEY (`id`) REFERENCES `Available` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Delete Tutor Subjects` FOREIGN KEY (`id`) REFERENCES `Subject` (`tutor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
