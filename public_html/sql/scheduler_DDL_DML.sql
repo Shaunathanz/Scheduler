@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2021 at 08:36 PM
+-- Generation Time: Apr 23, 2021 at 05:31 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -20,17 +20,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `scheduler`
 --
+CREATE DATABASE IF NOT EXISTS `scheduler` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `scheduler`;
 
 -- --------------------------------------------------------
-DROP TABLE IF EXISTS `Tutor`;
-DROP TABLE IF EXISTS `Appointment`;
-DROP TABLE IF EXISTS `Available`;
-DROP TABLE IF EXISTS `Student`;
-DROP TABLE IF EXISTS `Subject`;
+
 --
 -- Table structure for table `Appointment`
 --
 
+DROP TABLE IF EXISTS `Appointment`;
 CREATE TABLE `Appointment` (
   `id` int(3) NOT NULL,
   `tutor_id` int(3) NOT NULL,
@@ -39,6 +38,7 @@ CREATE TABLE `Appointment` (
   `time_end` int(4) NOT NULL,
   `subject` varchar(50) NOT NULL,
   `status` varchar(11) NOT NULL DEFAULT 'Unconfirmed',
+  `assignment_info` varchar(500) NOT NULL,
   `student_id` int(7) DEFAULT NULL,
   `time_off` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -47,32 +47,32 @@ CREATE TABLE `Appointment` (
 -- Dumping data for table `Appointment`
 --
 
-INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `student_id`, `time_off`) VALUES
-(4, 1, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
-(1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
-(2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
-(4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(13, 1, '2021-04-11', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
-(12, 1, '2021-04-11', 1000, 1200, 'Test', 'Confirmed', 1, b'0'),
-(14, 1, '2021-04-11', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
-(15, 1, '2021-04-11', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
-(16, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(18, 1, '2021-04-13', 1000, 1200, 'Test', 'Confirmed', 1, b'0'),
-(17, 1, '2021-04-15', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
-(19, 1, '2021-04-17', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
-(11, 1, '2021-04-18', 100, 200, 'Algebra', 'Unconfirmed', 3, b'0'),
-(23, 1, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', 3, b'0'),
-(20, 1, '2021-04-20', 1400, 1600, 'Discrete Mathematics', 'Confirmed', 2, b'0'),
-(21, 1, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(22, 1, '2021-04-26', 100, 200, 'Algebra', 'Unconfirmed', 3, b'0'),
-(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', 4, b'0'),
-(24, 2, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', 1, b'0'),
-(28, 2, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0'),
-(26, 2, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', 3, b'0'),
-(27, 3, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', 3, b'0'),
-(9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', 1, b'0'),
-(9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', 3, b'0'),
-(25, 3, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', 3, b'0');
+INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `assignment_info`, `student_id`, `time_off`) VALUES
+(4, 1, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
+(1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
+(2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
+(4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
+(13, 1, '2021-04-11', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
+(12, 1, '2021-04-11', 1000, 1200, 'Test', 'Confirmed', '', 1, b'0'),
+(14, 1, '2021-04-11', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
+(15, 1, '2021-04-11', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
+(16, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
+(18, 1, '2021-04-13', 1000, 1200, 'Test', 'Confirmed', '', 1, b'0'),
+(17, 1, '2021-04-15', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
+(19, 1, '2021-04-17', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
+(11, 1, '2021-04-18', 100, 200, 'Algebra', 'Unconfirmed', '', 3, b'0'),
+(23, 1, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', '', 3, b'0'),
+(20, 1, '2021-04-20', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
+(21, 1, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
+(22, 1, '2021-04-26', 100, 200, 'Algebra', 'Unconfirmed', '', 3, b'0'),
+(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', '', 4, b'0'),
+(24, 2, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
+(28, 2, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
+(26, 2, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', '', 3, b'0'),
+(27, 3, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
+(9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', '', 1, b'0'),
+(9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', '', 3, b'0'),
+(25, 3, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0');
 
 -- --------------------------------------------------------
 
@@ -80,6 +80,7 @@ INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `
 -- Table structure for table `Available`
 --
 
+DROP TABLE IF EXISTS `Available`;
 CREATE TABLE `Available` (
   `tutor_id` int(3) NOT NULL,
   `time_start` int(4) NOT NULL,
@@ -102,6 +103,7 @@ INSERT INTO `Available` (`tutor_id`, `time_start`, `time_end`) VALUES
 -- Table structure for table `Student`
 --
 
+DROP TABLE IF EXISTS `Student`;
 CREATE TABLE `Student` (
   `id` int(7) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -124,6 +126,7 @@ INSERT INTO `Student` (`id`, `name`, `email`) VALUES
 -- Table structure for table `Subject`
 --
 
+DROP TABLE IF EXISTS `Subject`;
 CREATE TABLE `Subject` (
   `tutor_id` int(3) NOT NULL,
   `subject` varchar(30) NOT NULL
@@ -153,6 +156,7 @@ INSERT INTO `Subject` (`tutor_id`, `subject`) VALUES
 -- Table structure for table `Tutor`
 --
 
+DROP TABLE IF EXISTS `Tutor`;
 CREATE TABLE `Tutor` (
   `id` int(3) NOT NULL,
   `name` varchar(50) NOT NULL,
