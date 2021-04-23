@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2021 at 07:58 PM
+-- Generation Time: Apr 23, 2021 at 08:06 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -171,6 +171,7 @@ CREATE TABLE `Tutor` (
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
 (3, 'History Tutor', 'history@school.com', 'test', ''),
+(4, 'Janitorial Tutor', 'janitor@school.com', 'test', ''),
 (2, 'Math Tutor', 'math@school.com', 'test', ''),
 (1, 'Test Tutor', 'test@test.com', 'test', '');
 
