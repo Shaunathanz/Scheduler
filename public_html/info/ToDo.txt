@@ -9,11 +9,11 @@ AH X (Student) Schedule An Appointment
 AH X (Tutor) Create Missing Subject(s) Field
 AH X (Tutor) Select Multiple Subject for Profile Registration & Modification
 
-SG - (Student) Create list of possible subjects
 SG - (Student) Limit teacher options to Tutors with an entry in Subject with that subject value
 SG - (Student) Make impossible to select start time and end time as same time
-SG - (Student) Make impossible to select an appointment day in the past
-SG - (Student) CSS/HTML tweaks
+SG X (Student) Create list of possible subjects
+SG X (Student) Make impossible to select an appointment day in the past
+SG X (Student) CSS/HTML tweaks
 SG X (Database) Add note attribute to Appointment table for assignment notes
 SG X (Tutor) Display Upcoming Confirmed Appointments for days beyond current date
 SG X (Tutor) Display All Unconfirmed Appointments
