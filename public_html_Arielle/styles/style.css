@@ -1,0 +1,387 @@
+/*Base Design*/
+
+/*PLACE NEW CSS BELOW NEXT LINE COMMENT*/
+
+body
+{
+    text-align: center;
+    background: rgb(230, 227, 227);
+    overflow: scroll;
+}
+
+#logo
+{
+    background-color: #AD024C;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 50px gray;
+}
+
+#logo-text 
+{
+    margin-bottom: 0px;
+	font-size: 2em;
+    text-align: center;
+    margin-top: 16px;
+}   
+
+#nav 
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    max-width: 1100px;
+}
+
+#nav ul 
+{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+    background: rgb(241, 241, 241);
+    user-select: none;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 30px black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#tutor-nav li:hover
+{
+    background-color: #AD024C;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+#student-nav li:hover
+{
+    background-color: rgb(0, 107, 64);
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+#nav ul li:active
+{
+    background-color: black;
+}
+
+#nav > ul > li 
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    min-width: 100px;
+    margin: auto;
+} 
+
+#welcome-msg
+{
+    min-height: 0px;
+	text-align: center;
+}
+
+.content-item 
+{
+    display: block;
+    overflow: scroll;
+    max-width: 1080px;
+    min-height: 81px;
+    box-shadow: 0px 2px 10px gray;
+    border-radius: 12px;
+    margin: auto;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+.content-item.small 
+{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 331px;
+}
+
+/* put flex-item inside div */
+.content-flex-area 
+{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1101px;
+    gap: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* can display two boxes side-by-side by default */
+.content-item.flex-item 
+{
+    height: 170px;
+    margin: 0px;
+    box-shadow: 0px 2px 10px gray;
+    border-width: 1px;
+    flex-basis: 400px;
+    flex-grow: 1;
+    background: white;
+    min-width: 208px;
+}
+
+/* can display 3 boxes side-by-side */
+.content-item.flex-item.thirds 
+{
+    flex-basis: 256px;
+    min-width: 0px;
+}
+
+/* v PLACE NEW CSS BELOW THIS LINE v */
+
+/* SPLASH PAGE CSS */
+
+#splash-btn-tutor 
+{
+    border-color: #FFB3E7;
+    border-style: double;
+    user-select: none;
+    border-width: 2px;
+    height: 69px;
+}
+
+#splash-btn-tutor:hover 
+{
+    cursor: pointer;
+    border-color: #E60099;
+}
+
+#splash-btn-student 
+{
+    border-color: #AFFFB2;
+    border-style: double;
+    user-select: none;
+    border-width: 2px;
+    height: 69px;
+}
+
+#splash-btn-student:hover 
+{
+    cursor: pointer;
+    border-color: #24c004;
+}
+
+#login
+{
+    display: none;
+}
+
+#loginBtn
+{
+    cursor: pointer;
+}
+   
+
+.col-25 
+{
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+  
+.col-75 
+{
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
+
+#popupBG /* this CSS is a work in progress */
+{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: scroll;
+}
+
+.popup {/* this CSS is a work in progress */
+    display: none;
+    max-width: 950px;
+    box-shadow: 0px 2px 10px gray;
+    border-radius: 12px;
+    background: white;
+    padding: 10px;
+    animation-name: zoom;
+    animation-duration: 0.3s;
+    overflow: scroll;
+    position: sticky;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    height: 773px;
+}
+
+@keyframes zoom
+{
+    from {transform:scale(0)}
+    to {transform:scale(1)} 
+}
+
+.midwidth {
+    width: 50%;
+    float: left;
+}
+
+.text_right {
+    text-align: right;
+}
+.text_left {
+    text-align: left;
+}
+.appointment-section b{
+	margin-left:5px;
+	margin-right:5px;
+}
+.appointment-section span{
+	margin-left:5px;
+	margin-right:5px;
+}
+.appointment-section .row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+}
+span.success {
+    background: #4ccea7;
+    color: #fff;
+    padding: 3px;
+}
+span.decline {
+    background: #d32c2c;
+    color: #fff;
+    padding: 3px;
+}
+.sub_group {
+    float: left;
+}
+
+.submit_area {
+    margin: 6px auto;
+    float: none;
+    width: 244px;
+}
+.submit_area a{
+    
+    text-decoration: none;
+}
+.dec_success{
+	color: #d32c2c;
+}
+.acpt_success{
+	color: #4ccea7;
+}
+.appointment_footer_section {
+    text-align: center;
+    background: #fff;
+    margin: 0 auto;
+    max-width: 1100px;
+    box-shadow: 0px 2px 10px grey;
+    border-radius: 12px;
+}
+
+.appointment_footer_section ul {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+}
+
+.appointment_footer_section ul li {
+    float: left;
+    padding: 9px 22px;
+    list-style: none;
+    font-size: 22px;
+    /* color: #fff; */
+}
+
+.appointment_footer_section ul li a {
+    color: #000;
+    text-decoration: none;
+}
+.edit_icon{
+	color:#000;
+	text-decoration: none;
+}
+.profile_pic_block {
+    border: 1px solid #9e9e9e;
+    margin: 0 auto;
+    max-width: 260px;
+    padding: 11px;
+}
+
+#appt-table tr td {
+    width: 30%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+table tr:nth-child(even) {
+    background: gainsboro;
+}
+.fc-daygrid.fc-dayGridMonth-view.fc-view {
+    z-index: 0;
+}
+
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
+    z-index: 0;
+}
+.popup{
+	text-align:center;
+}
+.content-item h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-top: 6px;
+}
+#tutor-nav li:hover a{
+	color: white;
+}
+#tutor-nav li a{
+	color: #212529;
+	text-decoration: none;
+}
+.disble_date_blk {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/* ################# */

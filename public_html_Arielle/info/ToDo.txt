@@ -1,0 +1,21 @@
+MISSING FEATURES
+
+AH / (Student) Schedule An Appointment
+AH - (Tutor) Request Time Off
+AH - (Tutor) Send Appointment Confirmation Emails
+AH - (Tutor) Confirm / Deny Appointment (interface & forms)
+AH - (Tutor) Modify Availability (interface & forms)
+AH - (Tutor & Student) Assignment note labels should match 
+AH X (Tutor) Create Missing Subject(s) Field
+AH X (Tutor) Select Multiple Subject for Profile Registration & Modification
+
+SG X (Tutor) Display Upcoming Confirmed Appointments for days beyond current date
+SG X (Tutor) Display All Unconfirmed Appointments
+SG - (Tutor) Create Tutor page Update Subjects table with single/multiple selections
+SG - (Student) Create list of possible subjects
+SG - (Student) Limit teacher options to Tutors with an entry in Subject with that subject value
+SG - (Student) Add attribute for assignment notes
+SG - (Student) Make impossible to select start time and end time as same time
+SG - (Student) Make impossible to select an appointment day in the past
+SG - (Student) CSS/HTML tweaks
+SG - (Database) Add note attribute to Appointment table for assignment notes
