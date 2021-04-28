@@ -44,7 +44,7 @@ $firstnameErr = $lastnameErr = $emailErr = $subject= $genderErr = $websiteErr = 
 $firstname = $lastname = $email = $gender = $comment = $website = $major =  "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	insert_appointment($_POST);
+	insert_appointment($_POST,$_FILES);
 }
 $sql = "SELECT DISTINCT subject FROM Subject";
 $result = $db->query($sql);
@@ -54,7 +54,7 @@ $result = $db->query($sql);
 <h2>Student Portal</h2>
 <p>Welcome to the student page. We are here to help. Please make your selections below. <br>You will receive a confirmation email once your session has been confirmed or cancelled </p>
 <p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="student-appt-form">  
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" id="student-appt-form">  
   Select subjects 
   <select name="subject" required class="form-select form-control" id="subject"?>">
 		<?php
@@ -107,6 +107,9 @@ $result = $db->query($sql);
   <br><br>
   Tell us about the assignment
   <input type="text" name="assignment" value="">
+  <br><br>
+  File
+  <input type="file" name="myfile" value="">
   <br><br>
   Enter name
   <input type="text" name="name" value="">
