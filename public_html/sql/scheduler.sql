@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 23, 2021 at 08:06 PM
+-- Generation Time: Apr 28, 2021 at 09:21 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -129,7 +129,7 @@ INSERT INTO `Student` (`id`, `name`, `email`) VALUES
 DROP TABLE IF EXISTS `Subject`;
 CREATE TABLE `Subject` (
   `tutor_id` int(3) NOT NULL,
-  `subject` varchar(30) NOT NULL
+  `subject` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -137,18 +137,42 @@ CREATE TABLE `Subject` (
 --
 
 INSERT INTO `Subject` (`tutor_id`, `subject`) VALUES
-(1, 'Test'),
-(2, 'Algebra'),
+(1, 'Beginning Japanese I'),
+(1, 'Beginning Japanese II'),
+(1, 'Calculus'),
+(1, 'Chemistry'),
+(1, 'College Algebra'),
+(1, 'Computer Security'),
+(1, 'Database Management Systems'),
+(1, 'Discrete Mathematics'),
+(1, 'Internet Application Development'),
+(1, 'Intro to Data Structures'),
+(1, 'Organization of Programming Languages'),
+(1, 'Precalculus'),
+(1, 'Programming with Objects'),
+(1, 'Sociology of Deviance'),
+(1, 'Statistics'),
+(1, 'Web Design & Implementation'),
+(1, 'Writing for the Web'),
 (2, 'Calculus'),
+(2, 'College Algebra'),
 (2, 'Discrete Mathematics'),
-(2, 'How to Avoid Working'),
-(2, 'Pre Calculus'),
-(3, 'Another History Topic'),
-(3, 'European History'),
-(3, 'How to Avoid Working'),
-(3, 'Some History Topic'),
-(4, 'How to Avoid Working'),
-(4, 'Sweeping Floor Basics');
+(2, 'Precalculus'),
+(2, 'Statistics'),
+(3, 'Sociology of Deviance'),
+(4, 'Chemistry'),
+(5, 'Beginning Japanese I'),
+(5, 'Beginning Japanese II'),
+(5, 'Writing for the Web'),
+(6, 'Computer Security'),
+(6, 'Database Management Systems'),
+(6, 'Discrete Mathematics'),
+(6, 'Internet Application Development'),
+(6, 'Intro to Data Structures'),
+(6, 'Organization of Programming Languages'),
+(6, 'Programming with Objects'),
+(6, 'Web Design & Implementation'),
+(6, 'Writing for the Web');
 
 -- --------------------------------------------------------
 
@@ -170,9 +194,11 @@ CREATE TABLE `Tutor` (
 --
 
 INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(3, 'History Tutor', 'history@school.com', 'test', ''),
-(4, 'Janitorial Tutor', 'janitor@school.com', 'test', ''),
+(6, 'Computer Science Tutor', 'compsci@school.com', 'test', ''),
+(5, 'Language Tutor', 'language@school.com', 'test', ''),
 (2, 'Math Tutor', 'math@school.com', 'test', ''),
+(4, 'Science Tutor', 'science@school.com', 'test', ''),
+(3, 'Sociology Tutor', 'sociology@school.com', 'test', ''),
 (1, 'Test Tutor', 'test@test.com', 'test', '');
 
 --
