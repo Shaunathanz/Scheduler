@@ -2,10 +2,8 @@
 
 <div id="nav">
     <ul id="tutor-nav">
-        <!--<li onclick="showPopup('calendar');">[TEMP] Calendar</li> -->
-		<li ><a href="tutor-calendar.php">[TEMP] Calendar</a></li>
-        <!--<li onclick="showPopup('appointment');">[TEMP] Appointments</li> These will be useless soon -->
-		<li ><a href="tutor-home.php">[TEMP] Appointments</a></li>
+        <li onclick="showPopup('calendar');">[TEMP] Calendar</li> <!-- -->
+        <li onclick="showPopup('appointment');">[TEMP] Appointments</li> <!--These will be useless soon -->
         <li onclick="showPopup('availability');">[To Do] Availability</li>        
         <li onclick="showPopup('profile');">Profile</li>
         <li onclick="goToPage('logout');">Logout</li>
