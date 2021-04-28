@@ -3,6 +3,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css?<?php echo time();?>" media="screen" />
     <link rel="stylesheet" type="text/css" href="../assets/fullcalendar/main.css?<?php echo time();?>" media="screen" />
+
+    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- This is problematic for the tutor-home page -->
+    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> <!-- This is problematic for the tutor-home page -->
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script> <!-- This is problematic for the tutor-home page -->
+
     <script src="../scripts/script.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="../assets/fullcalendar/main.js"></script>
