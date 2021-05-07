@@ -213,6 +213,15 @@
                 }
 				//print_r($result->fetch_row());
                 while($row = $result->fetch_assoc()) {
+					/*$firstname = (isset($row['fname'])) ? $row['fname'] : "";
+					$lastname = (isset($row['lname'])) ? $row['lname'] : "";
+					$email = (isset($row['email'])) ? $row['email'] : "";
+					$comment = (isset($row['comment'])) ? $row['comment'] : "";
+					$gender = (isset($row['gender'])) ? $row['gender'] : "";
+					$sub_knowledge = (isset($row['sub_knowledge'])) ? $row['sub_knowledge'] : "";
+					$degree = (isset($row['degree'])) ? $row['degree'] : "";
+					$about = (isset($row['about'])) ? $row['about'] : "";*/
+					$phone = (isset($row['phone'])) ? $row['phone'] : "";
 					$img = (isset($row['img'])) ? $row['img'] : "";
 					if(!empty($img)){
 						$_imgurl="../images/".$img;
@@ -226,8 +235,8 @@
             <form action="../scripts/update_profile.php" method="POST" enctype="multipart/form-data">
                 <div class="profile_pic">	
                     <div class="profile_pic_block">
-                        <img height="200px" style="max-width:261px" width="auto" src="<?php echo $_imgurl; ?>">                        
-                        <a class="edit_icon" href="tutor-profile.php"><i class="icon-pencil"></i> </a>
+                        <img height="200px" style="max-width:237px" width="auto" src="<?php echo $_imgurl; ?>">                        
+                        <!--<a class="edit_icon" href="tutor-profile.php"><i class="icon-pencil"></i> </a>-->
 						<input class="" name="profileImage" type="file"/>
                     </div>	
                 </div>
@@ -239,9 +248,12 @@
                 <span class="error">* <?php echo $emailErr;?></span>
                 <!--Need password field-->
                 
+                <!--<br><br>
+				Phone: <input type="text" name="phone" value="<?php echo $phone;?>">-->
+                
                 <br><br>
 				Subjects :
-				<select id="subject" name="subject" multiple required>  
+				<select id="subject" name="subject" multiple >  
 	   
 				  <option value="Mathematics">Mathematics</option>  
 				  <option value="Science">Science</option>  
@@ -251,7 +263,7 @@
 				<br><br>
                 <!--<input type="submit" name="submit" value="Submit"> -->
                 <button type="button" onClick="hidePopup();">Close</button>
-                <input type="submit" value="Update & Logout" id="updateBtn"> 
+                <input type="submit" value="Update" id="updateBtn"> 
             </form> 
         </div>
     </div>

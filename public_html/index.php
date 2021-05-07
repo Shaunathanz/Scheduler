@@ -10,7 +10,7 @@
 
 <body>
     <!--Logo-->
-    <?php require 'shared/logo.php';?>
+    <?php require 'shared/logo.php' ; ?>
 
     <!--All page contents should be a div within one of the defined "content" CSS classes-->
     <div id="welcome-msg" class="content-item">

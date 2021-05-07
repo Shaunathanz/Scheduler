@@ -1,97 +1,97 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
+-- version 4.2.11
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 28, 2021 at 09:21 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Host: 127.0.0.1
+-- Generation Time: Apr 24, 2021 at 11:31 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `scheduler`
+-- Database: `scheduler_old`
 --
-CREATE DATABASE IF NOT EXISTS `scheduler` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `scheduler`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Appointment`
+-- Table structure for table `appointment`
 --
 
-DROP TABLE IF EXISTS `Appointment`;
-CREATE TABLE `Appointment` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `appointment` (
+`id` int(3) NOT NULL,
   `tutor_id` int(3) NOT NULL,
   `date` date NOT NULL,
-  `time_start` int(4) NOT NULL,
-  `time_end` int(4) NOT NULL,
+  `time_start` varchar(10) NOT NULL,
+  `time_end` varchar(10) NOT NULL,
   `subject` varchar(50) NOT NULL,
   `status` varchar(11) NOT NULL DEFAULT 'Unconfirmed',
-  `assignment_info` varchar(500) NOT NULL,
   `student_id` int(7) DEFAULT NULL,
-  `time_off` bit(1) NOT NULL DEFAULT b'0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `time_off` bit(1) NOT NULL DEFAULT b'0',
+  `assignment` text NOT NULL,
+  `file` varchar(400) NOT NULL,
+  `student_name` varchar(100) NOT NULL,
+  `student_email` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Appointment`
+-- Dumping data for table `appointment`
 --
 
-INSERT INTO `Appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `assignment_info`, `student_id`, `time_off`) VALUES
-(4, 1, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
-(1, 1, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
-(2, 1, '2021-04-10', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
-(4, 1, '2021-04-10', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
-(13, 1, '2021-04-11', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
-(12, 1, '2021-04-11', 1000, 1200, 'Test', 'Confirmed', '', 1, b'0'),
-(14, 1, '2021-04-11', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
-(15, 1, '2021-04-11', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
-(16, 1, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
-(18, 1, '2021-04-13', 1000, 1200, 'Test', 'Confirmed', '', 1, b'0'),
-(17, 1, '2021-04-15', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
-(19, 1, '2021-04-17', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
-(11, 1, '2021-04-18', 100, 200, 'Algebra', 'Unconfirmed', '', 3, b'0'),
-(23, 1, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', '', 3, b'0'),
-(20, 1, '2021-04-20', 1400, 1600, 'Discrete Mathematics', 'Confirmed', '', 2, b'0'),
-(21, 1, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
-(22, 1, '2021-04-26', 100, 200, 'Algebra', 'Unconfirmed', '', 3, b'0'),
-(3, 2, '2021-04-10', 1000, 1200, 'Calculus', 'Unconfirmed', '', 4, b'0'),
-(24, 2, '2021-04-10', 1200, 1400, 'Discrete Mathematics', 'Confirmed', '', 1, b'0'),
-(28, 2, '2021-04-11', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0'),
-(26, 2, '2021-04-18', 700, 900, 'How to Avoid Working', 'Unconfirmed', '', 3, b'0'),
-(27, 3, '2021-04-10', 700, 800, 'Discrete Mathematics', 'Unconfirmed', '', 3, b'0'),
-(9, 3, '2021-04-11', 800, 1000, 'Something History Related', 'Confirmed', '', 1, b'0'),
-(9, 3, '2021-04-11', 1000, 1200, 'Something History Related', 'Confirmed', '', 3, b'0'),
-(25, 3, '2021-04-25', 1600, 1700, 'Discrete Mathematics', 'Confirmed', '', 3, b'0');
+INSERT INTO `appointment` (`id`, `tutor_id`, `date`, `time_start`, `time_end`, `subject`, `status`, `student_id`, `time_off`, `assignment`, `file`, `student_name`, `student_email`) VALUES
+(1, 1, '2021-04-10', '12:00', '14:00', 'Discrete Mathematics', 'Confirmed', 1, b'0', '', '', '', ''),
+(2, 1, '2021-04-10', '14:00', '16:00', 'Discrete Mathematics', 'Confirmed', 2, b'0', '', '', '', ''),
+(4, 1, '2021-04-10', '16:00', '17:00', 'Discrete Mathematics', 'Confirmed', 3, b'0', '', '', '', ''),
+(5, 1, '2021-04-10', '7:00', '8:00', 'Discrete Mathematics', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(12, 1, '2021-04-11', '10:00', '12:00', 'Test', 'Confirmed', 1, b'0', '', '', '', ''),
+(14, 1, '2021-04-11', '12:00', '14:00', 'Discrete Mathematics', 'Confirmed', 1, b'0', '', '', '', ''),
+(15, 1, '2021-04-11', '14:00', '16:00', 'Discrete Mathematics', '', 2, b'0', '', '', '', ''),
+(16, 1, '2021-04-11', '16:00', '17:00', 'Discrete Mathematics', 'Confirmed', 3, b'0', '', '', '', ''),
+(13, 1, '2021-04-11', '7:00', '8:00', 'Discrete Mathematics', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(18, 1, '2021-04-13', '10:00', '12:00', 'Test', 'Confirmed', 1, b'0', '', '', '', ''),
+(17, 1, '2021-04-15', '7;00', '8:00', 'Discrete Mathematics', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(19, 1, '2021-04-17', '12:00', '14:00', 'Discrete Mathematics', 'Confirmed', 1, b'0', '', '', '', ''),
+(11, 1, '2021-04-18', '1:00', '2:00', 'Algebra', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(23, 1, '2021-04-18', '7:00', '9:00', 'How to Avoid Working', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(20, 1, '2021-04-20', '14:00', '16:00', 'Discrete Mathematics', 'Confirmed', 2, b'0', '', '', '', ''),
+(21, 1, '2021-04-25', '16:00', '17:00', 'Discrete Mathematics', 'Confirmed', 3, b'0', '', '', '', ''),
+(22, 1, '2021-04-26', '1:00', '2:00', 'Algebra', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(3, 2, '2021-04-10', '10:00', '12:00', 'Calculus', 'Unconfirmed', 4, b'0', '', '', '', ''),
+(8, 3, '2021-04-11', '10:00', '12:00', 'Something History Related', 'Confirmed', 3, b'0', '', '', '', ''),
+(9, 3, '2021-04-11', '8:00', '10:00', 'Something History Related', 'Confirmed', 1, b'0', '', '', '', ''),
+(24, 3, '2021-04-21', '0700', '0700', 'Algebra', 'Unconfirmed', 3, b'0', '', '', '', ''),
+(6, 4, '2021-04-10', '1:00', '2:00', 'Advanced Mopping Techniques', 'Unconfirmed', 2, b'0', '', '', '', ''),
+(7, 4, '2021-04-11', '1:00', '2:00', 'Mopping Basics', 'Confirmed', 3, b'0', '', '', '', ''),
+(25, 4, '2021-04-22', '07:00', '08:00', 'Another History Topic', 'Rejected', 0, b'0', 'Lab3', '', 'Test', 'test@gmail.cm'),
+(26, 4, '2021-04-22', '09:00', '10:00', 'Algebra', 'Rejected', 0, b'0', 'Lab5', '', 'test caregiver', 'rpd@mail.com'),
+(29, 4, '2021-04-22', '11:00', '12:00', 'Algebra', 'Unconfirmed', 0, b'0', 'sf', '', 'test caregiver', 'rpd@mail.com'),
+(34, 4, '2021-04-22', '13:00', '14:00', 'Algebra', 'Unconfirmed', 0, b'0', 'sf', '1619105747-1617002085866.JPEG', 'test caregiver', 'rpd@mail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Available`
+-- Table structure for table `available`
 --
 
-DROP TABLE IF EXISTS `Available`;
-CREATE TABLE `Available` (
+CREATE TABLE IF NOT EXISTS `available` (
   `tutor_id` int(3) NOT NULL,
   `time_start` int(4) NOT NULL,
   `time_end` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Available`
+-- Dumping data for table `available`
 --
 
-INSERT INTO `Available` (`tutor_id`, `time_start`, `time_end`) VALUES
+INSERT INTO `available` (`tutor_id`, `time_start`, `time_end`) VALUES
 (1, 700, 1500),
 (2, 900, 1700),
 (3, 1500, 1900),
@@ -100,21 +100,20 @@ INSERT INTO `Available` (`tutor_id`, `time_start`, `time_end`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Student`
+-- Table structure for table `student`
 --
 
-DROP TABLE IF EXISTS `Student`;
-CREATE TABLE `Student` (
-  `id` int(7) NOT NULL,
+CREATE TABLE IF NOT EXISTS `student` (
+`id` int(7) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Student`
+-- Dumping data for table `student`
 --
 
-INSERT INTO `Student` (`id`, `name`, `email`) VALUES
+INSERT INTO `student` (`id`, `name`, `email`) VALUES
 (1, 'Shaun G.', 'example@email.com'),
 (2, 'Kayla J.', 'kayjay@email.com'),
 (3, 'Jen H.', 'jenh@email.com'),
@@ -123,143 +122,111 @@ INSERT INTO `Student` (`id`, `name`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Subject`
+-- Table structure for table `subject`
 --
 
-DROP TABLE IF EXISTS `Subject`;
-CREATE TABLE `Subject` (
+CREATE TABLE IF NOT EXISTS `subject` (
   `tutor_id` int(3) NOT NULL,
-  `subject` varchar(60) NOT NULL
+  `subject` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Subject`
+-- Dumping data for table `subject`
 --
 
-INSERT INTO `Subject` (`tutor_id`, `subject`) VALUES
-(1, 'Beginning Japanese I'),
-(1, 'Beginning Japanese II'),
-(1, 'Calculus'),
-(1, 'Chemistry'),
-(1, 'College Algebra'),
-(1, 'Computer Security'),
-(1, 'Database Management Systems'),
-(1, 'Discrete Mathematics'),
-(1, 'Internet Application Development'),
-(1, 'Intro to Data Structures'),
-(1, 'Organization of Programming Languages'),
-(1, 'Precalculus'),
-(1, 'Programming with Objects'),
-(1, 'Sociology of Deviance'),
-(1, 'Statistics'),
-(1, 'Web Design & Implementation'),
-(1, 'Writing for the Web'),
+INSERT INTO `subject` (`tutor_id`, `subject`) VALUES
+(2, 'Algebra'),
 (2, 'Calculus'),
-(2, 'College Algebra'),
 (2, 'Discrete Mathematics'),
-(2, 'Precalculus'),
-(2, 'Statistics'),
-(3, 'Sociology of Deviance'),
-(4, 'Chemistry'),
-(5, 'Beginning Japanese I'),
-(5, 'Beginning Japanese II'),
-(5, 'Writing for the Web'),
-(6, 'Computer Security'),
-(6, 'Database Management Systems'),
-(6, 'Discrete Mathematics'),
-(6, 'Internet Application Development'),
-(6, 'Intro to Data Structures'),
-(6, 'Organization of Programming Languages'),
-(6, 'Programming with Objects'),
-(6, 'Web Design & Implementation'),
-(6, 'Writing for the Web');
+(2, 'How to Avoid Working'),
+(2, 'Pre Calculus'),
+(3, 'Another History Topic'),
+(3, 'European History'),
+(3, 'How to Avoid Working'),
+(3, 'Some History Topic'),
+(4, 'How to Avoid Working'),
+(4, 'Sweeping Floor Basics');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Tutor`
+-- Table structure for table `tutor`
 --
 
-DROP TABLE IF EXISTS `Tutor`;
-CREATE TABLE `Tutor` (
-  `id` int(3) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tutor` (
+`id` int(3) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `img` varchar(400) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `img` varchar(400) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `disable_dates` longtext NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Tutor`
+-- Dumping data for table `tutor`
 --
 
-INSERT INTO `Tutor` (`id`, `name`, `email`, `password`, `img`) VALUES
-(6, 'Computer Science Tutor', 'compsci@school.com', 'test', ''),
-(5, 'Language Tutor', 'language@school.com', 'test', ''),
-(2, 'Math Tutor', 'math@school.com', 'test', ''),
-(4, 'Science Tutor', 'science@school.com', 'test', ''),
-(3, 'Sociology Tutor', 'sociology@school.com', 'test', ''),
-(1, 'Test Tutor', 'test@test.com', 'test', '');
+INSERT INTO `tutor` (`id`, `name`, `email`, `password`, `img`, `phone`, `subject`, `disable_dates`) VALUES
+(4, 'Dr. Jan Itor', 'broom-life@school.com', 'test', '1618586792-b.jpg', '123456', '', '2021-04-24,2021-04-25'),
+(3, 'History Person', 'history@school.com', 'test', '', '', '', ''),
+(2, 'Math Lady', 'math@school.com', 'test', '', '', '', ''),
+(1, 'Test Tutor', 'test@test.com', 'test', '', '', '', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `Appointment`
+-- Indexes for table `appointment`
 --
-ALTER TABLE `Appointment`
-  ADD PRIMARY KEY (`tutor_id`,`date`,`time_start`),
-  ADD KEY `appt_id` (`id`);
+ALTER TABLE `appointment`
+ ADD PRIMARY KEY (`tutor_id`,`date`,`time_start`), ADD KEY `appt_id` (`id`), ADD KEY `id` (`id`);
 
 --
--- Indexes for table `Available`
+-- Indexes for table `available`
 --
-ALTER TABLE `Available`
-  ADD PRIMARY KEY (`tutor_id`);
+ALTER TABLE `available`
+ ADD PRIMARY KEY (`tutor_id`);
 
 --
--- Indexes for table `Student`
+-- Indexes for table `student`
 --
-ALTER TABLE `Student`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `student`
+ ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Subject`
+-- Indexes for table `subject`
 --
-ALTER TABLE `Subject`
-  ADD PRIMARY KEY (`tutor_id`,`subject`);
+ALTER TABLE `subject`
+ ADD PRIMARY KEY (`tutor_id`,`subject`);
 
 --
--- Indexes for table `Tutor`
+-- Indexes for table `tutor`
 --
-ALTER TABLE `Tutor`
-  ADD PRIMARY KEY (`email`) USING BTREE,
-  ADD KEY `tutor_id` (`id`) USING BTREE;
+ALTER TABLE `tutor`
+ ADD PRIMARY KEY (`name`,`email`), ADD KEY `tutor_id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `Appointment`
+-- AUTO_INCREMENT for table `appointment`
 --
-ALTER TABLE `Appointment`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
+ALTER TABLE `appointment`
+MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
--- AUTO_INCREMENT for table `Student`
+-- AUTO_INCREMENT for table `student`
 --
-ALTER TABLE `Student`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+ALTER TABLE `student`
+MODIFY `id` int(7) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT for table `Tutor`
+-- AUTO_INCREMENT for table `tutor`
 --
-ALTER TABLE `Tutor`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-COMMIT;
-
+ALTER TABLE `tutor`
+MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
