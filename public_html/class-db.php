@@ -1,9 +1,9 @@
 <?php
 class DB {
     private $dbHost     = "localhost";
-    private $dbUsername = "ics325sp2108";
-    private $dbPassword = "3428";
-    private $dbName     = "ics325sp2108";
+    private $dbUsername = "root";
+    private $dbPassword = "";
+    private $dbName     = "scheduler";
 
     public function __construct(){
         if(!isset($this->db)){
