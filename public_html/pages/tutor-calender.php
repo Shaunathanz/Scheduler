@@ -237,7 +237,7 @@
                 }
 				
 				echo "<script> var evt = [] ;";
-				$sql = "SELECT * FROM appointment WHERE tutor_id=$_id";
+				$sql = "SELECT * FROM Appointment WHERE tutor_id=$_id";
 				
                 if (!$result = $db->query($sql)) {
                     die ('There was an error running query[' . $connection->error . ']');
