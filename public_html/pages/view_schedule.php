@@ -1,7 +1,7 @@
 <?php  require_once '../scripts/initialize.php';
 	$_id = $_GET['id'];
 	//$sql = "SELECT * FROM appointment LEFT JOIN student ON appointment.student_id = student.id WHERE appointment.id=$_id";
-	$sql = "SELECT * FROM appointment WHERE id=$_id";
+	$sql = "SELECT * FROM Appointment WHERE id=$_id";
 				
                 if (!$result = $db->query($sql)) {
                     die ('There was an error running query[' . $connection->error . ']');
