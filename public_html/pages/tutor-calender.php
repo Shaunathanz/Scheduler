@@ -24,11 +24,6 @@
     <?php require '../shared/tutor-nav.php' ; ?>
 
     <!--Page Contents-->
-    <div class="content-item" id="welcome-msg">
-        <div>
-            <p>Welcome back, <i><?php echo $_SESSION["activeUser"]["name"];?></i></p>
-        </div>
-    </div>
 
     <div class="content-item">
 		<div class="disble_date_blk">	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Disable Dates</button></div>
