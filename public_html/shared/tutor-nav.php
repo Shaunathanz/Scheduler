@@ -1,8 +1,8 @@
 <?php require_once '../scripts/initialize.php'; ?>
 <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
 <div id="nav">
     <ul id="tutor-nav">
         <!--<li onclick="showPopup('calendar');">[TEMP] Calendar</li> <!-- -->
