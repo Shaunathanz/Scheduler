@@ -7,6 +7,7 @@
         $sql = "SELECT * FROM Tutor WHERE email='$email' AND password='$password'";
         $result = $db->query($sql);
         if (!$result) {
+            echo "Query: ".$sql."<br>";
             die ('There was an error running query[' . $connection->error . ']');
         } else if ($result->num_rows == 0) {
             echo "Invalid username/password combination!";
